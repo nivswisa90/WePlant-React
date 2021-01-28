@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react';
-// import axios from 'axios';
+import axios from 'axios';
 
 const useForm = (callback, validate) => {
   const [values, setValues] = useState({
-    username: '',
+    firstname: '',
+    lastname:'',
     email: '',
     password: '',
     password2: ''
@@ -22,13 +23,13 @@ const useForm = (callback, validate) => {
   const handleSubmit = e => {
     e.preventDefault();
     setErrors(validate(values));
-    // axios.post('http://localhost:9000/api/users', values)
-    // .then((res) => {
-        // if(res.data === "User already exist"){
-            // alert(res.data);
-        // }
-    // })
-    // .catch((err) => {console.log(err)});
+    axios.post('https://weplants.herokuapp.com/api/users/', {values})
+    .then((res) => {
+        if(res.data === "User already exist"){
+            alert(res.data);
+        }
+    })
+    .catch((err) => {console.log(err)});
     setIsSubmitting(true);
   };
 
@@ -38,7 +39,7 @@ const useForm = (callback, validate) => {
         callback();
       }
     },
-    [errors]
+    [callback, errors, isSubmitting]
   );
 
   return { handleChange, handleSubmit, values, errors };

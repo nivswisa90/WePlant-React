@@ -18,24 +18,24 @@ const FormSignup = ({ submitForm }) => {
           <input
             className='form-input'
             type='text'
-            name='username'
-            placeholder='Enter your username'
-            value={values.username}
+            name='firstname'
+            placeholder='Enter your first name'
+            value={values.firstname}
             onChange={handleChange}
           />
-          {errors.username && <p>{errors.username}</p>}
+          {errors.firstname && <p>{errors.firstname}</p>}
         </div>
         <div className='form-inputs'>
-          <label className='form-label'>First name</label>
+          <label className='form-label'>Last name</label>
           <input
             className='form-input'
             type='text'
-            name='username'
-            placeholder='Enter your username'
-            value={values.username}
+            name='lastname'
+            placeholder='Enter your last name'
+            value={values.lastname}
             onChange={handleChange}
           />
-          {errors.username && <p>{errors.username}</p>}
+          {errors.lastname && <p>{errors.lastname}</p>}
         </div>
         <div className='form-inputs'>
           <label className='form-label'>Email</label>
