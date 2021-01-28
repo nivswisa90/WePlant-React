@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import backgroundImage from '../Images/BackGroundImage.png';
+import Register from './Register/Form';
 
 const styles = {
     backGroundImage : {
@@ -15,6 +16,7 @@ const Layout = () => {
     return (
         <div style={styles.backGroundImage}>
             <img src={backgroundImage} alt="backgroundImage" />
+            <Register />
         </div>
     )
 }
