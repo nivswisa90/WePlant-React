@@ -11,10 +11,22 @@ const FormSignup = ({ submitForm }) => {
 
   return (
     <div className='form-content-right'>
-      <h4 id='form-title'> Register to We Plant</h4>
+      <h4 id='form-title'> Register to WePlant</h4>
       <form onSubmit={handleSubmit} className='form' noValidate>
         <div className='form-inputs'>
-          <label className='form-label'>Username</label>
+          <label className='form-label'>First name</label>
+          <input
+            className='form-input'
+            type='text'
+            name='username'
+            placeholder='Enter your username'
+            value={values.username}
+            onChange={handleChange}
+          />
+          {errors.username && <p>{errors.username}</p>}
+        </div>
+        <div className='form-inputs'>
+          <label className='form-label'>First name</label>
           <input
             className='form-input'
             type='text'
@@ -64,6 +76,7 @@ const FormSignup = ({ submitForm }) => {
         <button className='form-input-btn' type='submit'>
           Sign up
         </button>
+        <h4>sign in button</h4>
       </form>
     </div>
   );
