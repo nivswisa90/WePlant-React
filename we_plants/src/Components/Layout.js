@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import backgroundImage from '../Images/BackGroundImage.png';
-import Register from './Register/Form';
+import React, { useState, useEffect } from "react";
+import Login from "./Login/Login";
+import Form from './Register/Form';
 
 const styles = {
     backGroundImage : {
@@ -11,13 +11,14 @@ const styles = {
 }
 
 const Layout = () => {
-
+    const [isRegister, setIsRegister] = useState(false);
     
     return (
-        <div style={styles.backGroundImage}>
-            <img src={backgroundImage} alt="backgroundImage" />
-            <Register />
-        </div>
+        <p>Welcome</p>
+        // <div style={styles.backGroundImage}>
+        //     {/* <img src={backgroundImage} alt="backgroundImage" /> */}
+        //     {/* {!isRegister? (<Form />) : (<Login />)} */}
+        // </div>
     )
 }
 export default Layout;

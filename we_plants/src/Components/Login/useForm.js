@@ -3,11 +3,8 @@ import axios from 'axios';
 
 const useForm = (callback, validate) => {
   const [values, setValues] = useState({
-    first_name: '',
-    last_name:'',
     email: '',
-    password: '',
-    password2: ''
+    password: ''
   });
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -23,8 +20,10 @@ const useForm = (callback, validate) => {
   const handleSubmit = e => {
     e.preventDefault();
     setErrors(validate(values));
-    axios.post('https://weplants.herokuapp.com/api/users', values)
+    axios.get(`https://weplants.herokuapp.com/api/users?email=${values.email}`)
+    // axios.get(`http://localhost:3001/api/users?email=${values.email}`)
     .then((res) => {
+        console.log(res);
         if(res.data === "User already exist"){
             alert(res.data);
         }
