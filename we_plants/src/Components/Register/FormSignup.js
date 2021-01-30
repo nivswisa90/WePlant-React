@@ -1,6 +1,8 @@
 import React from 'react';
 import validate from './validateInfo';
 import useForm from './useForm';
+import {NavLink} from 'react-router-dom';
+import Button from "@material-ui/core/Button";
 import './Form.css';
 
 const FormSignup = ({ submitForm }) => {
@@ -76,7 +78,12 @@ const FormSignup = ({ submitForm }) => {
         <button className='form-input-btn' type='submit'>
           Sign up
         </button>
-        <h4>sign in button</h4>
+        
+        <h4>Already have an account?
+        <NavLink to='/Login'>
+        <Button color="primary">login</Button>
+        </NavLink>
+        </h4>
       </form>
     </div>
   );

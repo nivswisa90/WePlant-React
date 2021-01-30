@@ -40,7 +40,6 @@ const LoginForm = ({submitForm}) => {
                     <button className='form-input-btn' type='submit'>
                         Log in
                     </button>
-                    <h4>sign in button</h4>
                 </form>
             </div>
         </div>
