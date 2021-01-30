@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 
 
-const useForm = (callback, validate,setUserInfo) => {
+const useForm = (callback, validate, setUserInfo) => {
   const [values, setValues] = useState({
     email: '',
     password: ''
@@ -10,7 +10,7 @@ const useForm = (callback, validate,setUserInfo) => {
   const [errors, setErrors] = useState({});
 
   const [isSubmitting, setIsSubmitting] = useState(false);
-  
+
 
   const handleChange = e => {
     const { name, value } = e.target;
@@ -23,20 +23,19 @@ const useForm = (callback, validate,setUserInfo) => {
   const handleSubmit = e => {
     e.preventDefault();
     setErrors(validate(values));
-    axios.get(`https://weplants.herokuapp.com/api/users?email=${values.email}`)
-    // axios.get(`http://localhost:3001/api/users?email=${values.email}`)
-    .then((res) => {
-      console.log(res.data);
-        if(res.data === "User already exist"){
-            alert(res.data);
+    axios.post(`https://weplants.herokuapp.com/api/users/${values.email}`, values)
+      .then((res) => {
+        console.log(res.data);
+        if (res.data === 'Wrong password') {
+          alert('Wrong password');
         }
         else
           setUserInfo({
-            first_name : res.data.first_name,
-            last_name : res.data.last_name
+            first_name: res.data.first_name,
+            last_name: res.data.last_name
           })
-    })
-    .catch((err) => {console.log(err)});
+      })
+      .catch((err) => { console.log(err) });
     setIsSubmitting(true);
   };
 
