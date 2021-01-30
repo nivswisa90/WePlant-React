@@ -1,6 +1,6 @@
 import React from 'react';
 import validate from './validateInfo';
-import useForm from './useForm';
+import useForm from './useFormRegister';
 import {NavLink} from 'react-router-dom';
 import Button from "@material-ui/core/Button";
 import './Form.css';

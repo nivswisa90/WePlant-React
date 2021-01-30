@@ -1,13 +1,15 @@
-import React, { useState } from 'react';
+import React from 'react';
 import '../Register/Form.css';
-import useForm from  './useForm';
+import useFormLogin from  './useFormLogin';
 import validate from './validateInfo';
 
-const LoginForm = ({submitForm}) => {
-    const { handleChange, handleSubmit, values, errors } = useForm(
+const LoginForm = ({submitForm,setUserInfo}) => {
+    const { handleChange, handleSubmit, values, errors } = useFormLogin(
         submitForm,
-        validate
+        validate,
+        setUserInfo
     );
+    
     return (
         <div className='form-container'>
             <div className='form-content-right'>

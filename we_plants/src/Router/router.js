@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
-import Layout from '../Components/Layout';
+import Layout from '../Components/Layout/Layout';
 import Login from '../Components/Login/Login';
 import Form from '../Components/Register/Form';
 
