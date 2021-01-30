@@ -1,4 +1,110 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+header,
+main,
+footer,
+nav,
+aside,
+section,
+div {
+  display: block;
+}
+/* Container style */
 .MuiContainer-root {
   position: absolute;
   top: 5%;
 }
+/* End container style */
+
+/* Weather API */
+#description{
+  margin-left:5%;
+}
+#location{
+  margin-right:5%;
+}
+#weather {
+  flex: 0 0 70%;
+  /* height: 40%; */
+  background: #080705;
+  border-radius: 9px;
+  /* display: flex; */
+  /* align-items: center; */
+  /* color: white; */
+  font-family: "Montserrat", sans-serif;
+  font-weight: 300;
+  font-size: 1.3em;
+  color: #626262;
+  height: 30vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-image: linear-gradient(
+    to right top,
+    #99bbcb,
+    #a5c7d7,
+    #b1d4e2,
+    #bde0ee,
+    #c9edfa
+  );
+}
+
+#temp {
+  font-size: 81px;
+  color: rgba(0, 0, 0, 0.9);
+  font-weight: 100;
+}
+
+#weather h1 {
+  margin: 0 auto;
+  font-size: 2.2em;
+  text-align: center;
+  color: #fff;
+  font-size: 5em;
+}
+
+/* end of Weather widget */
+
+/* search Plants */
+#recent {
+  letter-spacing: -0.1px;
+  font-weight: 300;
+  font-size: 30px;
+  line-height: 20px;
+  margin-bottom: 3%;
+}
+#possible-error {
+  display: none;
+  color: red;
+}
+
+/* end of search plant */
+
+/* #card-location {
+  margin-left: 9%;
+} */
+.carousel-caption {
+  color: black;
+}
+.carousel-item {
+  margin-left: 9%;
+  margin-bottom: 0%;
+}
+
+/*slides card*/
+.carousel-indicators {
+  position: relative;
+}
+.carousel-indicators li {
+  background: #626262;
+}
+#btns {
+  margin-left: 25%;
+}
+.btn-light {
+  border-color: black;
+}
+/* end slides cards*/

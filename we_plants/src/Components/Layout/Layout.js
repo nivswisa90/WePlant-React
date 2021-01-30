@@ -1,10 +1,9 @@
-import React, { useState} from "react";
+import React from "react";
 import { NavLink } from "react-router-dom";
 import Button from "@material-ui/core/Button";
 import "./layout.css";
 
 const Layout = () => {
-  const [isRegister, setIsRegister] = useState(false);
 
   return (
     <div className="container">

@@ -26,6 +26,7 @@ const useForm = (callback, validate,setUserInfo) => {
     axios.get(`https://weplants.herokuapp.com/api/users?email=${values.email}`)
     // axios.get(`http://localhost:3001/api/users?email=${values.email}`)
     .then((res) => {
+      console.log(res.data);
         if(res.data === "User already exist"){
             alert(res.data);
         }
