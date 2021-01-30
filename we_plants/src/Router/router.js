@@ -1,8 +1,8 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
-import Layout from '../Components/Layout/Layout';
-import Login from '../Components/Login/Login';
-import Form from '../Components/Register/Form';
+import Layout from '../Components/Layout/layout';
+import Login from '../Components/Login/login';
+import Form from '../Components/Register/form';
 
 const ReactRouter = () => {
     return (

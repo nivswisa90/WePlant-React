@@ -1,7 +1,7 @@
 import React, { useState} from "react";
 import { NavLink } from "react-router-dom";
 import Button from "@material-ui/core/Button";
-import "./Layout.css";
+import "./layout.css";
 
 const Layout = () => {
   const [isRegister, setIsRegister] = useState(false);

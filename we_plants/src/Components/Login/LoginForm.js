@@ -1,5 +1,5 @@
 import React from 'react';
-import '../Register/Form.css';
+import '../Register/form.css';
 import useFormLogin from  './useFormLogin';
 import validate from './validateInfo';
 

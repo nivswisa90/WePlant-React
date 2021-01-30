@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import MainPage from '../MainPage/MainPage';
-import '../Register/Form.css';
-import LoginForm from './LoginForm';
+import React, { useState } from 'react';
+import MainPage from '../MainPage/mainPage';
+import '../Register/form.css';
+import LoginForm from './loginForm';
 
 const Login = () => {
     const [isLoggedIn, setIsLoggedIn] = useState(true);
@@ -13,9 +13,6 @@ const Login = () => {
     function submitForm() {
         setIsLoggedIn(false);
     }
-    useEffect(() => {
-        console.log(userInfo);
-    },[userInfo])
 
     return (
         <div>

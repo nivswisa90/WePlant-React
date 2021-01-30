@@ -3,7 +3,7 @@ import validate from './validateInfo';
 import useForm from './useFormRegister';
 import {NavLink} from 'react-router-dom';
 import Button from "@material-ui/core/Button";
-import './Form.css';
+import './form.css';
 
 const FormSignup = ({ submitForm }) => {
   const { handleChange, handleSubmit, values, errors } = useForm(
