@@ -1,16 +1,13 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
-
 const useForm = (callback, validate, setUserInfo) => {
   const [values, setValues] = useState({
     email: '',
     password: ''
   });
   const [errors, setErrors] = useState({});
-
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleChange = e => {
     const { name, value } = e.target;
@@ -26,26 +23,27 @@ const useForm = (callback, validate, setUserInfo) => {
     axios.post(`https://weplants.herokuapp.com/api/users/${values.email}`, values)
       .then((res) => {
         console.log(res.data);
-        if (res.data === 'Wrong password') {
-          alert('Wrong password');
+        if (res.data === 'Wrong password' || res.data === 'User does not exist') {
+          alert('User or password did not match');
         }
-        else
+        else {
           setUserInfo({
             first_name: res.data.first_name,
             last_name: res.data.last_name
           })
+          setIsSubmitted(true);
+        }
       })
       .catch((err) => { console.log(err) });
-    setIsSubmitting(true);
   };
 
   useEffect(
     () => {
-      if (Object.keys(errors).length === 0 && isSubmitting) {
+      if (Object.keys(errors).length === 0 && isSubmitted) {
         callback();
       }
     },
-    [callback, errors, isSubmitting]
+    [callback, errors, isSubmitted]
   );
 
   return { handleChange, handleSubmit, values, errors };
