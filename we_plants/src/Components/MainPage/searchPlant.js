@@ -9,12 +9,13 @@ const SearchPlant = () => {
   });
 
   const getPlants = () => {
-    axios.get(`https://weplants.herokuapp.com/api/plants?name=${plantName.name}`)
-    .then(docs =>{
-      setResult(result => [...result, docs.data]);
-    })
-    .catch(err => console.log(err));
-    console.log(result);
+    // axios.get(`https://weplants.herokuapp.com/api/plants?name=${plantName.name}`, { withCredentials: true })
+    axios.get(`http://localhost:3000/api/plants?name=${plantName.name}`, { withCredentials: true })
+      .then(docs => {
+        setResult( docs.data);
+        console.log(result);
+      })
+      .catch(err => console.log(err));
   }
 
 
@@ -27,8 +28,12 @@ const SearchPlant = () => {
   };
 
   const handleSubmit = () => {
-    getPlants();
-    // console.log(result);
+    axios.get(`http://localhost:3000/api/plants?name=${plantName.name}`, { withCredentials: true })
+      .then(docs => {
+        setResult(docs.data);
+        console.log(result);
+      })
+      .catch(err => console.log(err));
     // result? <PlantResult/>:<h1>No result</h1>
   }
 
@@ -39,13 +44,13 @@ const SearchPlant = () => {
           <h2 id="recent">Search Plants</h2>
           <div className="form-inline my-2 my-lg-0">
             <input
-            className="form-control mr-sm-2"
-            type="search"
-            name='name'
-            placeholder='Search'
-            value={plantName.name}
-            onChange={handleChange}
-            aria-label="Search" />
+              className="form-control mr-sm-2"
+              type="search"
+              name='name'
+              placeholder='Search'
+              value={plantName.name}
+              onChange={handleChange}
+              aria-label="Search" />
             <button id="get-query-search" className="btn btn-outline-dark my-2 my-sm-0" type="submit" onClick={handleSubmit}>
               Search
             </button>

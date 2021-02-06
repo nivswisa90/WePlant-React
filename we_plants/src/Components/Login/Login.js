@@ -18,6 +18,7 @@ const Login = () => {
         const getUserInfo = () => {
             axios.get(`http://localhost:3000/api/users/${userId}`, { withCredentials: true })
                 .then((res) => {
+                    console.log(res.data.my_favorites);
                     setUserInfo({ first_name: res.data.first_name, last_name: res.data.last_name, my_favorites: res.data.my_favorites });
                 })
                 .catch(err => console.log(err))
