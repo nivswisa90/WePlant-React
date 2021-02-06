@@ -43,34 +43,6 @@ div {
   color: #fff;
   cursor: pointer;
 }
-/*   
-  .form-content-left {
-    background: linear-gradient(
-      90deg,
-      rgb(39, 176, 255) 0%,
-      rgb(0, 232, 236) 100%
-    );
-    border-radius: 10px 0 0 10px;
-    position: relative;
-  } */
-
-/* .form-img {
-    width: 80%;
-    height: 80%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-  
-  .form-img-2 {
-    width: 60%;
-    height: 60%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  } */
 
 .form-success {
   text-align: center;

@@ -1,36 +1,29 @@
-import React, { useEffect, useState } from 'react';
-
+import React, { useState } from "react";
 
 const WeatherAPI = () => {
-    const [weatherFeatures, setWeatherFeatures] = useState({
-        description: '',
-        temp: '',
-        location: ''
-    })
+  const [weatherFeatures, setWeatherFeatures] = useState({
+    description: "",
+    temp: "",
+    location: "",
+  });
 
-    const fetchWeather = async () => {
-        const apiCall = await fetch('https://weplants.herokuapp.com/api/weather');
-        const weather = await apiCall.json();
-        const celcius = Math.round(parseFloat(weather.main.temp) - 273.15);
-        const description = weather.weather[0].description;
-        const location = weather.name;
-        console.log(weather);
-        
-        setWeatherFeatures({description,celcius,location});
-    }
-    
-    // useEffect(() => {
-    //     fetchWeather();
-    // }, [weatherFeatures]);
+  const fetchWeather = async () => {
+    const apiCall = await fetch("https://weplants.herokuapp.com/api/weather");
+    const weather = await apiCall.json();
+    const celcius = Math.round(parseFloat(weather.main.temp) - 273.15);
+    const description = weather.weather[0].description;
+    const location = weather.name;
+    setWeatherFeatures({ description, celcius, location });
+  };
 
-    return (
-        <div className="row no-gutters">
-            <div className="col-sm-6 col-md-8" id="weather">
-                <div id="description">{weatherFeatures.description}</div>
-                <h1 id="temp">{weatherFeatures.celcius}</h1>
-                <div id="location">{weatherFeatures.location}</div>
-            </div>
-        </div>
-    )
+  return (
+    <div className="row no-gutters">
+      <div className="col-sm-6 col-md-8" id="weather">
+        <div id="description">{weatherFeatures.description}</div>
+        <h1 id="temp">{weatherFeatures.celcius}</h1>
+        <div id="location">{weatherFeatures.location}</div>
+      </div>
+    </div>
+  );
 };
 export default WeatherAPI;

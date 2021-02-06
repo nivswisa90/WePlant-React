@@ -1,41 +1,45 @@
-import React, { useEffect, useState } from 'react';
-import PlantResult from './plantResult';
-import axios from 'axios';
+import React, { useState } from "react";
+import axios from "axios";
 
 const SearchPlant = () => {
-  const [result, setResult] = useState('');
+  const [result, setResult] = useState("");
   const [plantName, setPlantName] = useState({
-    name: ''
+    name: "",
   });
-
+  // working on get plants
   const getPlants = () => {
     // axios.get(`https://weplants.herokuapp.com/api/plants?name=${plantName.name}`, { withCredentials: true })
-    axios.get(`http://localhost:3000/api/plants?name=${plantName.name}`, { withCredentials: true })
-      .then(docs => {
-        setResult( docs.data);
+    axios
+      .get(`http://localhost:3000/api/plants?name=${plantName.name}`, {
+        withCredentials: true,
+      })
+      .then((docs) => {
+        setResult(docs.data);
         console.log(result);
       })
-      .catch(err => console.log(err));
-  }
+      .catch((err) => console.log(err));
+  };
 
-
-  const handleChange = e => {
+  const handleChange = (e) => {
     const { name, value } = e.target;
     setPlantName({
       ...plantName,
-      [name]: value
+      [name]: value,
     });
   };
 
   const handleSubmit = () => {
-    axios.get(`http://localhost:3000/api/plants?name=${plantName.name}`, { withCredentials: true })
-      .then(docs => {
+    axios
+      .get(`http://localhost:3000/api/plants?name=${plantName.name}`, {
+        withCredentials: true,
+      })
+      .then((docs) => {
         setResult(docs.data);
         console.log(result);
       })
-      .catch(err => console.log(err));
+      .catch((err) => console.log(err));
     // result? <PlantResult/>:<h1>No result</h1>
-  }
+  };
 
   return (
     <div>
@@ -46,12 +50,18 @@ const SearchPlant = () => {
             <input
               className="form-control mr-sm-2"
               type="search"
-              name='name'
-              placeholder='Search'
+              name="name"
+              placeholder="Search"
               value={plantName.name}
               onChange={handleChange}
-              aria-label="Search" />
-            <button id="get-query-search" className="btn btn-outline-dark my-2 my-sm-0" type="submit" onClick={handleSubmit}>
+              aria-label="Search"
+            />
+            <button
+              id="get-query-search"
+              className="btn btn-outline-dark my-2 my-sm-0"
+              type="submit"
+              onClick={handleSubmit}
+            >
               Search
             </button>
           </div>
@@ -59,7 +69,6 @@ const SearchPlant = () => {
         </div>
       </div>
     </div>
-
-  )
+  );
 };
 export default SearchPlant;

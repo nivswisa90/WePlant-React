@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import './form.css';
-import FormSignup from './formSignup';
-import FormSuccess from './formSuccess';
+import React, { useState } from "react";
+import "./form.css";
+import FormSignup from "./formSignup";
+import FormSuccess from "./formSuccess";
 
 const Form = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -9,15 +9,11 @@ const Form = () => {
   function submitForm() {
     setIsSubmitted(true);
   }
+
   return (
-      <div className='form-container'>
-        {!isSubmitted ? (
-          <FormSignup submitForm={submitForm} />
-        ) : (
-          <FormSuccess />
-        )}
-      </div>
+    <div className="form-container">
+      {!isSubmitted ? <FormSignup submitForm={submitForm} /> : <FormSuccess />}
+    </div>
   );
 };
-
 export default Form;

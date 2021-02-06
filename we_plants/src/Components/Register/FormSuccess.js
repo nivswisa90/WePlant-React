@@ -8,5 +8,4 @@ const FormSuccess = () => {
     </div>
   );
 };
-
 export default FormSuccess;

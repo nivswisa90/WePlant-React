@@ -19,20 +19,16 @@ div {
 /* End container style */
 
 /* Weather API */
-#description{
-  margin-left:5%;
+#description {
+  margin-left: 5%;
 }
-#location{
-  margin-right:5%;
+#location {
+  margin-right: 5%;
 }
 #weather {
   flex: 0 0 70%;
-  /* height: 40%; */
   background: #080705;
   border-radius: 9px;
-  /* display: flex; */
-  /* align-items: center; */
-  /* color: white; */
   font-family: "Montserrat", sans-serif;
   font-weight: 300;
   font-size: 1.3em;
@@ -83,9 +79,6 @@ div {
 
 /* end of search plant */
 
-/* #card-location {
-  margin-left: 9%;
-} */
 .carousel-caption {
   color: black;
 }

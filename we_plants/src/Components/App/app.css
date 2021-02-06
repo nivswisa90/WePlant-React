@@ -1,36 +1,35 @@
 * {
-    margin: 0;
-    padding: 0;
-  }
-  header,
-  main,
-  footer,
-  nav,
-  aside,
-  section,
-  div {
-    display: block;
-  }
-  .no-gutters {
-    margin-right: 0;
-    margin-left: 5%;
-    margin-top: 5%;
-  }
-.container {
-    position: absolute;
-    top: 5%;
-    left: 33%;
-    border: 1px solid;
-    border-radius : 10%;
-    background:white;
-    height: 10%;
-    width: 30%;
-
+  margin: 0;
+  padding: 0;
 }
-.welcome-title{
-    text-align: center;
-    font-family: "Montserrat", sans-serif;
-    font-weight: 200;
-    color: #626262;
-    font-size: 42px;
+header,
+main,
+footer,
+nav,
+aside,
+section,
+div {
+  display: block;
+}
+.no-gutters {
+  margin-right: 0;
+  margin-left: 5%;
+  margin-top: 5%;
+}
+.container {
+  position: absolute;
+  top: 5%;
+  left: 33%;
+  border: 1px solid;
+  border-radius: 10%;
+  background: white;
+  height: 10%;
+  width: 30%;
+}
+.welcome-title {
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 200;
+  color: #626262;
+  font-size: 42px;
 }
