@@ -1,24 +1,12 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
+import PlantResult from './plantResult';
 
 const SearchPlant = () => {
   const [result, setResult] = useState("");
   const [plantName, setPlantName] = useState({
     name: "",
   });
-  // working on get plants
-  const getPlants = () => {
-    // axios.get(`https://weplants.herokuapp.com/api/plants?name=${plantName.name}`, { withCredentials: true })
-    axios
-      .get(`http://localhost:3000/api/plants?name=${plantName.name}`, {
-        withCredentials: true,
-      })
-      .then((docs) => {
-        setResult(docs.data);
-        console.log(result);
-      })
-      .catch((err) => console.log(err));
-  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -35,10 +23,8 @@ const SearchPlant = () => {
       })
       .then((docs) => {
         setResult(docs.data);
-        console.log(result);
       })
       .catch((err) => console.log(err));
-    // result? <PlantResult/>:<h1>No result</h1>
   };
 
   return (
@@ -65,7 +51,7 @@ const SearchPlant = () => {
               Search
             </button>
           </div>
-          <p id="possible-error">There is no results</p>
+          {!result ? <p id="possible-error">There is no results</p> : <PlantResult result={result} />}
         </div>
       </div>
     </div>
