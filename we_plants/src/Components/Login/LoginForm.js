@@ -3,13 +3,13 @@ import '../Register/form.css';
 import useFormLogin from  './useFormLogin';
 import validate from './validateInfo';
 
-const LoginForm = ({submitForm,setUserInfo}) => {
+const LoginForm = ({ setUserInfo, submitForm }) => {
     const { handleChange, handleSubmit, values, errors } = useFormLogin(
         submitForm,
         validate,
-        setUserInfo
+        setUserInfo 
     );
-    
+
     return (
         <div className='form-container'>
             <div className='form-content-right'>

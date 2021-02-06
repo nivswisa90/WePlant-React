@@ -3,9 +3,11 @@ import axios from 'axios';
 
 const useForm = (callback, validate, setUserInfo) => {
   const [values, setValues] = useState({
+    id: '',
     email: '',
     password: ''
   });
+
   const [errors, setErrors] = useState({});
   const [isSubmitted, setIsSubmitted] = useState(false);
 
@@ -17,20 +19,15 @@ const useForm = (callback, validate, setUserInfo) => {
     });
   };
 
-  const handleSubmit = e => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setErrors(validate(values));
-    axios.post(`https://weplants.herokuapp.com/api/users/${values.email}`, values)
+    axios.post(`http://localhost:3000/api/users/${values.email}`, values, {withCredentials:true})
       .then((res) => {
-        console.log(res.data);
         if (res.data === 'Wrong password' || res.data === 'User does not exist') {
           alert('User or password did not match');
         }
         else {
-          setUserInfo({
-            first_name: res.data.first_name,
-            last_name: res.data.last_name
-          })
           setIsSubmitted(true);
         }
       })
@@ -46,7 +43,7 @@ const useForm = (callback, validate, setUserInfo) => {
     [callback, errors, isSubmitted]
   );
 
-  return { handleChange, handleSubmit, values, errors };
+  return { handleChange, handleSubmit, values, errors};
 };
 
 export default useForm;

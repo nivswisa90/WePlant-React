@@ -1,10 +1,9 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import Button from "@material-ui/core/Button";
-import "./layout.css";
+import "./app.css";
 
-const Layout = () => {
-
+const App = () => {
   return (
     <div className="container">
       <h3 className="welcome-title">Welcome to WePLants</h3>
@@ -23,4 +22,5 @@ const Layout = () => {
     </div>
   );
 };
-export default Layout;
+
+export default App;

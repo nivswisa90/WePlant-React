@@ -1,16 +1,22 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import PlantResult from './plantResult';
 import axios from 'axios';
 
 const SearchPlant = () => {
-  const [result, setResult] = useState(false);
+  const [result, setResult] = useState('');
   const [plantName, setPlantName] = useState({
     name: ''
   });
 
-  // const getPlants = () => {
-  //   axios.get(`https://weplants.herokuapp.com/api/plants?name=${plantName}`);
-  // }
+  const getPlants = () => {
+    axios.get(`https://weplants.herokuapp.com/api/plants?name=${plantName.name}`)
+    .then(docs =>{
+      setResult(result => [...result, docs.data]);
+    })
+    .catch(err => console.log(err));
+    console.log(result);
+  }
+
 
   const handleChange = e => {
     const { name, value } = e.target;
@@ -18,8 +24,13 @@ const SearchPlant = () => {
       ...plantName,
       [name]: value
     });
-    console.log(plantName);
   };
+
+  const handleSubmit = () => {
+    getPlants();
+    // console.log(result);
+    // result? <PlantResult/>:<h1>No result</h1>
+  }
 
   return (
     <div>
@@ -35,14 +46,13 @@ const SearchPlant = () => {
             value={plantName.name}
             onChange={handleChange}
             aria-label="Search" />
-            <button id="get-query-search" className="btn btn-outline-dark my-2 my-sm-0" type="submit">
+            <button id="get-query-search" className="btn btn-outline-dark my-2 my-sm-0" type="submit" onClick={handleSubmit}>
               Search
             </button>
           </div>
           <p id="possible-error">There is no results</p>
         </div>
       </div>
-      <PlantResult />
     </div>
 
   )

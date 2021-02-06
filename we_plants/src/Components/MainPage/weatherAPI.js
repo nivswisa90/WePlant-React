@@ -19,9 +19,9 @@ const WeatherAPI = () => {
         setWeatherFeatures({description,celcius,location});
     }
     
-    useEffect(() => {
-        fetchWeather();
-    }, [weatherFeatures]);
+    // useEffect(() => {
+    //     fetchWeather();
+    // }, [weatherFeatures]);
 
     return (
         <div className="row no-gutters">
