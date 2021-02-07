@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import PlantResult from './plantResult';
 
-const SearchPlant = () => {
+const SearchPlant = ({userInfo}) => {
   const [result, setResult] = useState("");
   const [plantName, setPlantName] = useState({
     name: "",
@@ -50,7 +50,7 @@ const SearchPlant = () => {
               Search
             </button>
           </div>
-          {!result ? <p id="possible-error">There is no results</p> : <PlantResult result={result} />}
+          {!result ? <p id="possible-error">There is no results</p> : <PlantResult result={result} userId={userInfo.id}/>}
         </div>
       </div>
   );

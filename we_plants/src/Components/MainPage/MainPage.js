@@ -11,7 +11,7 @@ const MainPage = ({ userInfo }) => {
     <Container maxWidth="sm">
       <UserInfo userInfo={userInfo} />
       <WeatherAPI />
-      <SearchPlant />
+      <SearchPlant userInfo={userInfo}/>
       <MyPlants result={userInfo}/>
     </Container>
   );

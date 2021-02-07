@@ -24,7 +24,7 @@ const MyPlants = ({ result }) => {
     axios.delete(`http://localhost:3000/api/users/${result.id}?plantId=${plantId}`, {
       withCredentials: true,
     })
-    .then(docs => {alert('Successfully delete')})
+    .then(docs => {console.log('Successfully delete')})
     .catch(err => {console.log(err)});
   }
   

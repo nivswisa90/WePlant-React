@@ -1,11 +1,11 @@
-import React, {useState} from 'react';
+import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import ListSubheader from '@material-ui/core/ListSubheader';
 import PlantCard from "../Plant/plantCard";
 import axios from 'axios';
 
 
-const useStylesResult = makeStyles((theme) => ({
+const useStylesResult = makeStyles(() => ({
   root: {
     display: 'flex',
     flexWrap: 'wrap',
@@ -18,24 +18,24 @@ const useStylesResult = makeStyles((theme) => ({
   },
 }));
 
-const PlantResult = ({ result }) => {
+const PlantResult = ({ result, userId }) => {
   const classes = useStylesResult();
   const resultLength = result.length;
   const cardType = 'result';
 
-  // const addToMyPlants = (plantId) => {
-  //   axios.put(`http://localhost:3000/api/users/${result.id}?plantId=${plantId}`, {
-  //     withCredentials: true,
-  //   })
-  //   .then(docs => {alert('Successfully delete')})
-  //   .catch(err => {console.log(err)});
-  // }
+  const addToMyPlants = (plantId) => {
+    axios.put(`http://localhost:3000/api/users/${userId}?plantId=${plantId}`, '', {
+      withCredentials: true,
+    })
+    .then(docs => {console.log('Successfully added')})
+    .catch(err => {console.log(err)});
+  }
 
   return (
     <section className={classes.tableData}>
       <div className={classes.root}>
           <ListSubheader style={{ height: 'auto' }} component="div">{`Found ${resultLength} plants`}</ListSubheader> 
-          <PlantCard result={result} cardType={cardType} />
+          <PlantCard result={result} cardType={cardType} addToMyPlants={addToMyPlants} />
       </div>
     </section >
   );

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import AddIcon from '@material-ui/icons/Add'
 import InfoIcon from '@material-ui/icons/Info';
@@ -25,21 +25,20 @@ const useStyles = makeStyles({
   },
 });
 
-const PlantCard = ({result, cardType, deletePlant}) => {
+const PlantCard = ({ result, cardType, deletePlant, addToMyPlants }) => {
   const classes = useStyles();
-  console.log(result);
 
   const handleClick = (id) => {
-    if(cardType === 'myPlant') {
+    if (cardType === 'myPlant') {
       deletePlant(id);
     }
-    else{
-      console.log('add');
+    else if (cardType === 'result') {
+      addToMyPlants(id);
     }
   }
 
-    return (
-      <GridList className={classes.gridList} cols={1}>
+  return (
+    <GridList className={classes.gridList} cols={1}>
       {result.map((res) => (
         <GridListTile style={{ height: 500 }} key={res.id}>
           <img src={res.imageUrl} alt={res.name} />
@@ -51,19 +50,19 @@ const PlantCard = ({result, cardType, deletePlant}) => {
             }}
             actionIcon={
               <div>
-              <IconButton aria-label={`${res.name}`} onClick={()=>{handleClick(res.id)}}>
-                {cardType !== 'myPlant' ? <AddIcon className={classes.title} /> : <RemoveIcon className={classes.title}/>}
-              </IconButton>
-              <IconButton>
-                <InfoIcon className={classes.title} />
-              </IconButton>
+                <IconButton aria-label={`${res.name}`} onClick={() => { handleClick(res.id) }}>
+                  {cardType !== 'myPlant' ? <AddIcon className={classes.title} /> : <RemoveIcon className={classes.title} />}
+                </IconButton>
+                <IconButton>
+                  <InfoIcon className={classes.title} />
+                </IconButton>
               </div>
             }
           />
         </GridListTile>
-          ))}
-    </GridList> 
-    );
-  }
+      ))}
+    </GridList>
+  );
+}
 
 export default PlantCard;
