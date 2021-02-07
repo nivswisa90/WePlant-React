@@ -28,7 +28,6 @@ const SearchPlant = () => {
   };
 
   return (
-    <div>
       <div className="row no-gutters">
         <div className="col-12">
           <h2 id="recent">Search Plants</h2>
@@ -54,7 +53,6 @@ const SearchPlant = () => {
           {!result ? <p id="possible-error">There is no results</p> : <PlantResult result={result} />}
         </div>
       </div>
-    </div>
   );
 };
 export default SearchPlant;

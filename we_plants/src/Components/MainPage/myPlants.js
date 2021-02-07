@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 // import ListSubheader from '@material-ui/core/ListSubheader';
 import PlantCard from "../Plant/plantCard";
 
-const useStylesResult = makeStyles((theme) => ({
+const useStylesResult = makeStyles(() => ({
   root: {
     display: 'flex',
     flexWrap: 'wrap',
@@ -16,16 +16,22 @@ const useStylesResult = makeStyles((theme) => ({
   },
 }));
 
-const MyPlants = ( {result} ) => {
+const MyPlants = ({ result }) => {
   const classes = useStylesResult();
 
   return (
-    <section className={classes.tableData}>
-      <div className={classes.root}>
-          {/* <ListSubheader style={{ height: 'auto' }} component="div">{`Found ${resultLength} plants`}</ListSubheader>  */}
-          <PlantCard result={result} />
+      <div className="row no-gutters">
+        <div className="col-12">
+          <h2 id="recent">My plants</h2>
+          <div className="form-inline my-2 my-lg-0">
+            <section className={classes.tableData}>
+              <div className={classes.root}>
+                <PlantCard result={result} />
+              </div>
+            </section >
+          </div>
+        </div>
       </div>
-    </section >
   );
 };
 export default MyPlants;
