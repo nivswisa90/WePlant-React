@@ -10,9 +10,9 @@ const Login = () => {
 
   const [userInfo, setUserInfo] = useState({
     id: '',
-    first_name: '',
-    last_name: '',
-    my_favorites: []
+    firstName: '',
+    lastName: '',
+    myFavorites: []
   });
 
   useEffect(() => {
@@ -25,9 +25,9 @@ const Login = () => {
           if(res.data){
             setUserInfo({
               id: res.data.id,
-              first_name: res.data.first_name,
-              last_name: res.data.last_name,
-              my_favorites: res.data.my_favorites,
+              firstName: res.data.firstName,
+              lastName: res.data.lastName,
+              myFavorites: res.data.myFavorites,
             });
           }
         })
@@ -55,7 +55,7 @@ const Login = () => {
 
   return (
     <div>
-      {!(userId && userInfo.first_name) ? (
+      {!(userId && userInfo.firstName) ? (
         <LoginForm setUserInfo={setUserInfo} submitForm={submitForm} />
       ) : (
           <MainPage userInfo={userInfo} />

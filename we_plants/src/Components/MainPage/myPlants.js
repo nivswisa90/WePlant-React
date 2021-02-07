@@ -35,7 +35,7 @@ const MyPlants = ({ result }) => {
         <div className="form-inline my-2 my-lg-0">
           <section className={classes.tableData}>
             <div className={classes.root}>
-              <PlantCard result={result.my_favorites} cardType={cardType} deletePlant={deletePlant}/>
+              <PlantCard result={result.myFavorites} cardType={cardType} deletePlant={deletePlant}/>
             </div>
           </section >
         </div>

@@ -20,24 +20,24 @@ const FormSignup = ({ submitForm }) => {
           <input
             className="form-input"
             type="text"
-            name="first_name"
+            name="firstName"
             placeholder="Enter your first name"
-            value={values.first_name}
+            value={values.firstName}
             onChange={handleChange}
           />
-          {errors.first_name && <p>{errors.first_name}</p>}
+          {errors.firstName && <p>{errors.firstName}</p>}
         </div>
         <div className="form-inputs">
           <label className="form-label">Last name</label>
           <input
             className="form-input"
             type="text"
-            name="last_name"
+            name="lastName"
             placeholder="Enter your last name"
-            value={values.last_name}
+            value={values.lastName}
             onChange={handleChange}
           />
-          {errors.last_name && <p>{errors.last_name}</p>}
+          {errors.lastName && <p>{errors.lastName}</p>}
         </div>
         <div className="form-inputs">
           <label className="form-label">Email</label>

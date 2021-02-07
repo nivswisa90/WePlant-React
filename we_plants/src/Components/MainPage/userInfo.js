@@ -8,7 +8,7 @@ const UserInfo = ({ userInfo }) => {
         <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
         <h3 id="welcome_header">Welcome Back,</h3>
         <h3 id="user_header">
-          {userInfo.first_name} {userInfo.last_name}
+          {userInfo.firstName} {userInfo.lastName}
         </h3>
       </div>
     </div>

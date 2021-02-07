@@ -42,7 +42,7 @@ const PlantCard = ({result, cardType, deletePlant}) => {
       <GridList className={classes.gridList} cols={1}>
       {result.map((res) => (
         <GridListTile style={{ height: 500 }} key={res.id}>
-          <img src={res.image_url} alt={res.name} />
+          <img src={res.imageUrl} alt={res.name} />
           <GridListTileBar
             title={res.name}
             classes={{

@@ -1,15 +1,15 @@
 export default function validateInfo(values) {
   let errors = {};
   //user info validation
-  if (!values.first_name) {
-    errors.first_name = "first name required";
+  if (!values.firstName) {
+    errors.firstName = "first name required";
   } else if (!/^[A-Za-z]+/.test(values.name)) {
-    errors.first_name = "Enter a valid first name";
+    errors.firstName = "Enter a valid first name";
   }
-  if (!values.last_name) {
-    errors.last_name = "last name required";
+  if (!values.lastName) {
+    errors.lastName = "last name required";
   } else if (!/^[A-Za-z]+/.test(values.name)) {
-    errors.last_name = "Enter a valid last name";
+    errors.lastName = "Enter a valid last name";
   }
   //Email validation
   if (!values.email) {
