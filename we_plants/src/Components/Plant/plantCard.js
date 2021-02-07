@@ -1,49 +1,65 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-import CardActionArea from '@material-ui/core/CardActionArea';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
-import Button from '@material-ui/core/Button';
+import AddIcon from '@material-ui/icons/Add'
+import InfoIcon from '@material-ui/icons/Info';
+import GridList from '@material-ui/core/GridList';
+import GridListTile from '@material-ui/core/GridListTile';
+import GridListTileBar from '@material-ui/core/GridListTileBar';
+import IconButton from '@material-ui/core/IconButton';
 
 const useStyles = makeStyles({
-  root: {
-    maxWidth: "50%",
+  cardSize: {
+    height: 500,
   },
-  media: {
-    height: "40%",
+  gridList: {
+    flexWrap: 'nowrap',
+    transform: 'translateZ(0)',
   },
-  image: {
-    width: "100%",
-    height: "50%",
-  }
+  title: {
+    color: 'black',
+  },
+  titleBar: {
+    background: '#626262',
+    opacity: '50%'
+  },
 });
 
-const PlantCard = (result) => {
+const PlantCard = ({result}) => {
   const classes = useStyles();
-  return (
-    <Card className={classes.root}>
-      <img className={classes.image} src={result.res.image_url} alt={result.res.name}/>
-      {/* <CardActionArea>
-        <CardMedia
-          className={classes.media}
-          image={result.res.image_url}
-          title="Contemplative Reptile"
-        />
-        <CardContent>
-        </CardContent>
-      </CardActionArea> */}
-      <CardActions>
-        <Button variant="outlined" color="primary">
-          Add
-        </Button>
-        <Button variant="outlined" color="primary">
-          View
-        </Button>
-      </CardActions>
-    </Card>
-  );
+  if(Object.keys(result).length > 0){
+    console.log(result);
+    return (
+      <GridList className={classes.gridList} cols={1}>
+      {result.map((res) => (
+        <GridListTile style={{ height: 500 }} key={res.name}>
+          <img src={res.image_url} alt={res.name} />
+          <GridListTileBar
+            title={res.name}
+            classes={{
+              root: classes.titleBar,
+              title: classes.title,
+            }}
+            actionIcon={
+              <div>
+              <IconButton aria-label={`star ${res.name}`}>
+                <AddIcon className={classes.title} />
+              </IconButton>
+              <IconButton>
+                <InfoIcon className={classes.title} />
+              </IconButton>
+              </div>
+            }
+          />
+        </GridListTile>
+          ))}
+    </GridList> 
+    );
+  }
+  else{
+    console.log("problem!!!!");
+    return
+  }
+ 
 }
 
 export default PlantCard;

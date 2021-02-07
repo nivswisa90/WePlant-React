@@ -12,7 +12,8 @@ const Login = () => {
     first_name: "",
     last_name: "",
     my_favorites: {},
-  });
+  }
+  );
 
   useEffect(() => {
     const getUserInfo = () => {

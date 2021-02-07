@@ -1,8 +1,7 @@
-import React, {useState} from 'react';
+import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import ListSubheader from '@material-ui/core/ListSubheader';
+// import ListSubheader from '@material-ui/core/ListSubheader';
 import PlantCard from "../Plant/plantCard";
-
 
 const useStylesResult = makeStyles((theme) => ({
   root: {
@@ -17,17 +16,17 @@ const useStylesResult = makeStyles((theme) => ({
   },
 }));
 
-const PlantResult = ({ result }) => {
+const MyPlants = ( {result} ) => {
   const classes = useStylesResult();
-  const resultLength = result.length;
+//   console.log(result);
 
   return (
     <section className={classes.tableData}>
       <div className={classes.root}>
-          <ListSubheader style={{ height: 'auto' }} component="div">{`Found ${resultLength} plants`}</ListSubheader> 
-          <PlantCard result={result} />
+          {/* <ListSubheader style={{ height: 'auto' }} component="div">{`Found ${resultLength} plants`}</ListSubheader>  */}
+          <PlantCard result={result.my_favorites} />
       </div>
     </section >
   );
 };
-export default PlantResult;
+export default MyPlants;
