@@ -26,12 +26,10 @@ const useStyles = makeStyles({
 
 const PlantCard = ({result}) => {
   const classes = useStyles();
-  if(Object.keys(result).length > 0){
-    console.log(result);
     return (
       <GridList className={classes.gridList} cols={1}>
       {result.map((res) => (
-        <GridListTile style={{ height: 500 }} key={res.name}>
+        <GridListTile style={{ height: 500 }} key={res.id}>
           <img src={res.image_url} alt={res.name} />
           <GridListTileBar
             title={res.name}
@@ -55,11 +53,5 @@ const PlantCard = ({result}) => {
     </GridList> 
     );
   }
-  else{
-    console.log("problem!!!!");
-    return
-  }
- 
-}
 
 export default PlantCard;

@@ -9,11 +9,10 @@ const Login = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const [userInfo, setUserInfo] = useState({
-    first_name: "",
-    last_name: "",
-    my_favorites: {},
-  }
-  );
+    first_name: '',
+    last_name: '',
+    my_favorites: []
+  });
 
   useEffect(() => {
     const getUserInfo = () => {
@@ -22,11 +21,13 @@ const Login = () => {
           withCredentials: true,
         })
         .then((res) => {
-          setUserInfo({
-            first_name: res.data.first_name,
-            last_name: res.data.last_name,
-            my_favorites: res.data.my_favorites,
-          });
+          if(res.data){
+            setUserInfo({
+              first_name: res.data.first_name,
+              last_name: res.data.last_name,
+              my_favorites: res.data.my_favorites,
+            });
+          }
         })
         .catch((err) => console.log(err));
     };
@@ -52,11 +53,11 @@ const Login = () => {
 
   return (
     <div>
-      {!userId ? (
+      {!(userId && userInfo.first_name) ? (
         <LoginForm setUserInfo={setUserInfo} submitForm={submitForm} />
       ) : (
-        <MainPage userInfo={userInfo} />
-      )}
+          <MainPage userInfo={userInfo} />
+        )}
     </div>
   );
 };

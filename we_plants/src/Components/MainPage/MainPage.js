@@ -7,14 +7,12 @@ import SearchPlant from "./searchPlant";
 import MyPlants from "./myPlants";
 
 const MainPage = ({ userInfo }) => {
-  // if(userInfo.first_name && userInfo.last_name && userInfo.my_favorites)
-    // console.log(userInfo);
   return (
     <Container maxWidth="sm">
       <UserInfo userInfo={userInfo} />
       <WeatherAPI />
       <SearchPlant />
-      <MyPlants result={userInfo}/>
+      <MyPlants result={userInfo.my_favorites}/>
     </Container>
   );
 };

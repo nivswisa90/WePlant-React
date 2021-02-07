@@ -18,13 +18,12 @@ const useStylesResult = makeStyles((theme) => ({
 
 const MyPlants = ( {result} ) => {
   const classes = useStylesResult();
-//   console.log(result);
 
   return (
     <section className={classes.tableData}>
       <div className={classes.root}>
           {/* <ListSubheader style={{ height: 'auto' }} component="div">{`Found ${resultLength} plants`}</ListSubheader>  */}
-          <PlantCard result={result.my_favorites} />
+          <PlantCard result={result} />
       </div>
     </section >
   );
