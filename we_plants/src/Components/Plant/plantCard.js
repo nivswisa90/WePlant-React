@@ -6,6 +6,7 @@ import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
 import GridListTileBar from '@material-ui/core/GridListTileBar';
 import IconButton from '@material-ui/core/IconButton';
+import RemoveIcon from '@material-ui/icons/Remove';
 
 const useStyles = makeStyles({
   cardSize: {
@@ -24,8 +25,19 @@ const useStyles = makeStyles({
   },
 });
 
-const PlantCard = ({result}) => {
+const PlantCard = ({result, cardType, deletePlant}) => {
   const classes = useStyles();
+  console.log(result);
+
+  const handleClick = (id) => {
+    if(cardType === 'myPlant') {
+      deletePlant(id);
+    }
+    else{
+      console.log('add');
+    }
+  }
+
     return (
       <GridList className={classes.gridList} cols={1}>
       {result.map((res) => (
@@ -39,8 +51,8 @@ const PlantCard = ({result}) => {
             }}
             actionIcon={
               <div>
-              <IconButton aria-label={`star ${res.name}`}>
-                <AddIcon className={classes.title} />
+              <IconButton aria-label={`${res.name}`} onClick={()=>{handleClick(res.id)}}>
+                {cardType !== 'myPlant' ? <AddIcon className={classes.title} /> : <RemoveIcon className={classes.title}/>}
               </IconButton>
               <IconButton>
                 <InfoIcon className={classes.title} />

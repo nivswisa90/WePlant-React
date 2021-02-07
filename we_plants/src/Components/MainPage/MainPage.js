@@ -12,7 +12,7 @@ const MainPage = ({ userInfo }) => {
       <UserInfo userInfo={userInfo} />
       <WeatherAPI />
       <SearchPlant />
-      <MyPlants result={userInfo.my_favorites}/>
+      <MyPlants result={userInfo}/>
     </Container>
   );
 };
