@@ -4,6 +4,7 @@ import App from '../Components/App/app';
 import Login from '../Components/Login/login';
 import Form from '../Components/Register/form';
 import backgroundImage from '../Images/BackGroundImage.png';
+import Footer from "../Components/MainPage/footer";
 
 const styles = {
     backGroundImage: {
@@ -22,6 +23,7 @@ const ReactRouter = () => {
                 <Route path='/Login' component={Login} />
                 <Route path='/Register' component={Form} />
             </React.Fragment>
+            <Footer/>
         </div>
     )
 }

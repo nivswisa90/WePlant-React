@@ -6,6 +6,7 @@ import WeatherAPI from "./weatherAPI";
 import SearchPlant from "./searchPlant";
 import MyPlants from "./myPlants";
 
+
 const MainPage = ({ userInfo }) => {
   return (
     <Container maxWidth="sm">
