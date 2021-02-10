@@ -1,25 +1,30 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
-import Button from "@material-ui/core/Button";
+import React, { useMemo, useState } from "react";
+import backgroundImage from '../../Images/BackGroundImage.png';
+import Footer from "../MainPage/footer";
 import "./app.css";
+import ReactRouter from '../../Router/router';
+import {UserContext} from '../userContext';
 
-
+const styles = {
+  backGroundImage: {
+    position: "relative",
+    width: '100%',
+    height: '100%',
+  }
+}
 const App = () => {
+  // const [userInfo, setUserInfo] = useState(null);
+  // const valueProvider = useMemo(() => ({userInfo, setUserInfo}) , [userInfo, setUserInfo])
+
   return (
-    <div className="container">
-      <h3 className="welcome-title">Welcome to WePLants</h3>
-      <div>
-        <NavLink to="/Login">
-          <Button variant="outlined" color="primary">
-            Login
-          </Button>
-        </NavLink>
-        <NavLink to="/Register">
-          <Button variant="outlined" color="primary">
-            Register
-          </Button>
-        </NavLink>
-      </div>
+    <div>
+    <div style={styles.backGroundImage}>
+      <img src={backgroundImage} alt="backgroundImage" />
+      {/* <UserContext.Provider value = {valueProvider}> */}
+        <ReactRouter/>
+      {/* </UserContext.Provider> */}
+    </div>
+    <Footer />
     </div>
   );
 };

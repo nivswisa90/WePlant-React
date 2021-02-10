@@ -1,31 +1,21 @@
-import React from 'react';
-import { Route } from 'react-router-dom';
-import App from '../Components/App/app';
-import Login from '../Components/Login/login';
-import Form from '../Components/Register/form';
-import backgroundImage from '../Images/BackGroundImage.png';
-import Footer from "../Components/MainPage/footer";
-
-const styles = {
-    backGroundImage: {
-        position: "relative",
-        width: '100%',
-        height: '100%',
-    }
-}
+import React from "react";
+import { Route, Switch } from "react-router-dom";
+import WelcomePage from "../Components/App/welcomePage";
+import Login from "../Components/Login/login";
+import MainPage from "../Components/MainPage/mainPage";
+import Form from "../Components/Register/form";
 
 const ReactRouter = () => {
     return (
-        <div style={styles.backGroundImage}>
-            <img src={backgroundImage} alt="backgroundImage" />
-            <React.Fragment>
-                <Route exact path='/' component={App} />
-                <Route path='/Login' component={Login} />
-                <Route path='/Register' component={Form} />
-            </React.Fragment>
-            <Footer/>
-        </div>
-    )
-}
+        <>
+            <Switch>
+                <Route exact path="/" component={Login} />
+                <Route path="/welcomepage" component={WelcomePage}/>
+                <Route path="/login" component={Login} />
+                <Route path="/register" component={Form} />
+            </Switch>
+        </>
+    );
+};
 
 export default ReactRouter;

@@ -43,7 +43,7 @@ const PlantCard = ({ result, cardType, deletePlant, addToMyPlants }) => {
         <GridListTile style={{ height: 500 }} key={res.id}>
           <img src={res.imageUrl} alt={res.name} />
           <GridListTileBar
-            title={res.name}
+            title={res.plantName}
             classes={{
               root: classes.titleBar,
               title: classes.title,
