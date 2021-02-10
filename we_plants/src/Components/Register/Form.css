@@ -17,7 +17,7 @@ div {
   top: 5%;
   left: 30%;
   border-radius: 10px;
-  height: 32%;
+  height: 75%;
   display: grid;
   grid-template-columns: 1fr 1fr;
 }

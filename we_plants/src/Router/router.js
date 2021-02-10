@@ -2,7 +2,7 @@ import React from "react";
 import { Route, Switch } from "react-router-dom";
 import WelcomePage from "../Components/App/welcomePage";
 import Login from "../Components/Login/login";
-import MainPage from "../Components/MainPage/mainPage";
+// import MainPage from "../Components/MainPage/mainPage";
 import Form from "../Components/Register/form";
 
 const ReactRouter = () => {

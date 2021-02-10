@@ -16,9 +16,10 @@ const useStylesResult = makeStyles(() => ({
   },
 }));
 
-const MyPlants = ({ result }) => {
+const MyPlants = (props) => {
   const classes = useStylesResult();
   const cardType = 'myPlant';
+  const result = props.result.props.location.state;
 
   const deletePlant = (plantId) => {
     axios.delete(`http://localhost:3000/api/users/${result.id}?plantId=${plantId}`, {

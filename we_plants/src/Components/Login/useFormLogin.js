@@ -1,12 +1,14 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import {useHistory} from 'react-router-dom';
 
-const useForm = (callback, validate, setUserInfo) => {
+const useForm = (callback, validate,setUserInfo) => {
   const [values, setValues] = useState({
     id: "",
     email: "",
     password: "",
   });
+  const history = useHistory();
 
   const [errors, setErrors] = useState({});
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -34,6 +36,18 @@ const useForm = (callback, validate, setUserInfo) => {
           alert("User or password did not match");
         } else {
           setIsSubmitted(true);
+          setUserInfo({
+            id: res.data.id,
+              firstName: res.data.firstName,
+              lastName: res.data.lastName,
+              myFavorites: res.data.myFavorites,
+          });
+          const firstName = res.data.firstName; 
+          console.log(firstName);
+          history.push({
+            pathname:'/',
+            state: res.data
+          });
         }
       })
       .catch((err) => {

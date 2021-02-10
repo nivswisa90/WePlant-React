@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import PlantResult from './plantResult';
 
-const SearchPlant = ({userInfo}) => {
+const SearchPlant = (props) => {
+  const userInfo = props.userInfo.props.location.state;
   const [result, setResult] = useState("");
   const [plantName, setPlantName] = useState({
     name: "",

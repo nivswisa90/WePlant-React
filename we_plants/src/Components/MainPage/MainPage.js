@@ -7,13 +7,13 @@ import SearchPlant from "./searchPlant";
 import MyPlants from "./myPlants";
 
 
-const MainPage = ({ userInfo }) => {
+const MainPage = (props) => {
   return (
     <Container maxWidth="sm">
-      <UserInfo userInfo={userInfo} />
+      <UserInfo userInfo={props} />
       <WeatherAPI />
-      <SearchPlant userInfo={userInfo}/>
-      <MyPlants result={userInfo}/>
+      <SearchPlant userInfo={props}/>
+      <MyPlants result={props}/>
     </Container>
   );
 };
