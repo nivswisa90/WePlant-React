@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import AddIcon from '@material-ui/icons/Add'
 import InfoIcon from '@material-ui/icons/Info';
@@ -9,9 +9,14 @@ import IconButton from '@material-ui/core/IconButton';
 import RemoveIcon from '@material-ui/icons/Remove';
 import Popover from '@material-ui/core/Popover';
 import Typography from '@material-ui/core/Typography';
+import Button from '@material-ui/core/Button';
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import DialogTitle from '@material-ui/core/DialogTitle';
 
-
-const useStyles = makeStyles((theme)=> ({
+const useStyles = makeStyles((theme) => ({
   cardSize: {
     height: 500,
   },
@@ -26,7 +31,7 @@ const useStyles = makeStyles((theme)=> ({
     background: '#626262',
     opacity: '50%'
   },
-  popOver:{
+  popOver: {
     width: '50%',
   },
   typography: {
@@ -36,7 +41,9 @@ const useStyles = makeStyles((theme)=> ({
 
 const PlantCard = ({ result, cardType, deletePlant, addToMyPlants }) => {
   const classes = useStyles();
-  const [anchorEl, setAnchorEl] = React.useState(null);
+  const [accept , setAccept] = useState(false);
+  const [anchorEl, setAnchorEl] = useState(null);
+  const [open, setOpen] = useState(false);
 
   const handleClickDescription = (event) => {
     setAnchorEl(event.currentTarget);
@@ -47,6 +54,8 @@ const PlantCard = ({ result, cardType, deletePlant, addToMyPlants }) => {
   };
 
   const handleClick = (id) => {
+    setOpen(true);
+    
     if (cardType === 'myPlant') {
       deletePlant(id);
     }
@@ -55,7 +64,12 @@ const PlantCard = ({ result, cardType, deletePlant, addToMyPlants }) => {
     }
   }
 
-  const open = Boolean(anchorEl);
+  const handleClose = () => {
+    setOpen(false);
+    setAccept(true);
+  };
+
+  const openPopDescription = Boolean(anchorEl);
   const id = open ? 'simple-popover' : undefined;
 
   return (
@@ -74,6 +88,27 @@ const PlantCard = ({ result, cardType, deletePlant, addToMyPlants }) => {
                 <IconButton aria-label={`${res.name}`} onClick={() => { handleClick(res.id) }}>
                   {cardType !== 'myPlant' ? <AddIcon className={classes.title} /> : <RemoveIcon className={classes.title} />}
                 </IconButton>
+                <Dialog
+                  open={open}
+                  onClose={handleClose}
+                  aria-labelledby="alert-dialog-title"
+                  aria-describedby="alert-dialog-description"
+                >
+                  <DialogTitle id="alert-dialog-title">{"Are you sure ?"}</DialogTitle>
+                  <DialogContent>
+                    <DialogContentText id="alert-dialog-description">
+                      {cardType !== 'myPlant' ? `Are you sure you want to add ${res.plantName} to My plants?` : `Are you sure you want to delete ${res.plantName} from My plants?` }
+                    </DialogContentText>
+                  </DialogContent>
+                  <DialogActions>
+                    <Button onClick={handleClose} color="primary" >
+                      Disagree
+                    </Button>
+                    <Button onClick={handleClose} color="primary" autoFocus>
+                      Agree
+                    </Button>
+                  </DialogActions>
+                </Dialog>
                 <IconButton>
                   <InfoIcon className={classes.title} onClick={handleClickDescription} >
                   </InfoIcon>
@@ -81,7 +116,7 @@ const PlantCard = ({ result, cardType, deletePlant, addToMyPlants }) => {
                 <Popover
                   className={classes.popOver}
                   id={id}
-                  open={open}
+                  open={openPopDescription}
                   anchorEl={anchorEl}
                   onClose={handleCloseDescription}
                   anchorOrigin={{
@@ -91,28 +126,11 @@ const PlantCard = ({ result, cardType, deletePlant, addToMyPlants }) => {
                   transformOrigin={{
                     vertical: 'center',
                     horizontal: 'center',
-                  }}
-                >
+                  }}>
                   <Typography className={classes.typography}>{res.description}</Typography>
                 </Popover>
-                {/* <Accordion>
-                  <AccordionDetails>
-                    <Typography>
-                      {res.description}
-                    </Typography>
-                  </AccordionDetails>
-                  <AccordionSummary
-                    expandIcon={<ExpandMoreIcon />}
-                    aria-controls="panel1a-content"
-                    id="panel1a-header"
-                  >
-                    <Typography className={classes.heading}>More info</Typography>
-                  </AccordionSummary>
-                </Accordion> */}
-
               </div>
-            }
-          />
+            } />
         </GridListTile>
       ))}
     </GridList>

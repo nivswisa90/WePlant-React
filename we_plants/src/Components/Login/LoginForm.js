@@ -8,7 +8,6 @@ import Button from '@material-ui/core/Button';
 import { NavLink } from "react-router-dom";
 
 
-
 const LoginForm = ({ setUserInfo, submitForm }) => {
   const { handleChange, handleSubmit, values, errors } = useFormLogin(
     submitForm,
@@ -16,10 +15,8 @@ const LoginForm = ({ setUserInfo, submitForm }) => {
     setUserInfo
   );
 
-
   return (
     <Container maxWidth="sm">
-      {/* <div className="form-container"> */}
       <div className="form-login-content">
         <h4 id="form-title"> Log in to WePlant</h4>
         <form onSubmit={handleSubmit}  noValidate>
@@ -34,7 +31,6 @@ const LoginForm = ({ setUserInfo, submitForm }) => {
             {errors.email && <p>{errors.email}</p>}
           </div>
           <div className="form-inputs">
-            {/* <label className="form-label">Password</label> */}
             <TextField
               className="input-style"
               label="Password"
@@ -52,7 +48,7 @@ const LoginForm = ({ setUserInfo, submitForm }) => {
             </Button>
           </div>
           <NavLink to="/Register">
-            <div className="register-button">
+            <div className="register-login-button">
           <Button variant="outlined" color="secondary">
             Create new account
           </Button>

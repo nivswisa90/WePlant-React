@@ -51,7 +51,7 @@ const SearchPlant = ({ userInfo }) => {
             </Button>
           </div>
         </div>
-        {!result ? <p id="possible-error">There is no results</p> : <PlantResult result={result} userId={userInfo.id} />}
+        {!result ? <p></p> : <PlantResult result={result} userId={userInfo.id} />}
       </div>
     </div>
   );

@@ -11,8 +11,8 @@ section,
 div {
   display: block;
 }
-/* Container login*/
 @media (min-width: 600px){
+/* Container login*/
 .MuiContainer-maxWidthSm {
   height: 100vh;
 }
@@ -41,7 +41,7 @@ div {
   margin-left:29vh;
   margin-bottom: 2vh;
 }
-.register-button{
+.register-login-button{
   margin-left: 22vh;
 }
 
@@ -54,9 +54,35 @@ div {
   margin-bottom: 5%;
   font-size: 42px;
 }
+/* End of  login Container */
+
+/* Register container */
+.form-register-content{
+  border-radius: 10px;
+  position: relative;
+  background: rgba(250, 235, 215, 0.39) ;
+  height: 78vh;
+  border: 1px solid;
+  top: 15vh;
+  left: 49vh;
 }
 
-/* End of Container */
+.register-button{
+  margin-left:27vh;
+  margin-bottom: 2vh;
+}
+
+#down-title{
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 200;
+  color: #626262;
+  margin-top: 10%;
+  margin-bottom: 5%;
+  font-size: 20px;
+}
+/* end of Register container*/
+}
 
 /* .form-container {
   width: 70%;
