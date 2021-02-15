@@ -19,13 +19,13 @@ div {
 .form-login-content {
   border-radius: 10px;
   position: relative;
-  /* background: #013838; */
-  height: 45vh;
+  background: rgba(250, 235, 215, 0.39) ;
+  height: 55vh;
   border: 1px solid;
   top: 15vh;
 }
 .form-inputs {
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
   margin-left: 22vh;
   font-family: "Montserrat", sans-serif;
   font-weight: 200;
@@ -35,6 +35,24 @@ div {
   font-size: 0.8rem;
   margin-top: 0.5rem;
   color: #f00e0e;
+}
+
+.login-button{
+  margin-left:29vh;
+  margin-bottom: 2vh;
+}
+.register-button{
+  margin-left: 22vh;
+}
+
+#form-title {
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 200;
+  color: #626262;
+  margin-top: 10%;
+  margin-bottom: 5%;
+  font-size: 42px;
 }
 }
 
@@ -51,14 +69,7 @@ div {
   grid-template-columns: 1fr 1fr;
 } */
 
-#form-title {
-  text-align: center;
-  font-family: "Montserrat", sans-serif;
-  font-weight: 200;
-  color: #626262;
-  margin-top: 15%;
-  font-size: 42px;
-}
+
 #user_header {
   font-weight: 200;
 }

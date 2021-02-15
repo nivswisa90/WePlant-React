@@ -1,5 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import FacebookIcon from '@material-ui/icons/Facebook';
+import TwitterIcon from '@material-ui/icons/Twitter';
+import LinkedInIcon from '@material-ui/icons/LinkedIn';
 
 const Footer = (() => {
   return (
@@ -14,16 +17,14 @@ const Footer = (() => {
       </p>
         <ul className="social-icons">
           <li>
-            <Link className="facebook" to="#"><i className="fa fa-facebook"></i></Link>
+            
+            <Link className="facebook" to="#"><FacebookIcon/><i className="fa fa-facebook"></i></Link>
           </li>
           <li>
-            <Link className="twitter" to="#"><i className="fa fa-twitter"></i></Link>
+            <Link className="twitter" to="#"><TwitterIcon/><i className="fa fa-twitter"></i></Link>
           </li>
           <li>
-            <Link className="dribbble" to="#"><i className="fa fa-dribbble"></i></Link>
-          </li>
-          <li>
-            <Link className="linkedin" to="#"><i className="fa fa-linkedin"></i></Link>
+            <Link className="linkedin" to="#"><LinkedInIcon/><i className="fa fa-linkedin"></i></Link>
           </li>
         </ul>
       </div>

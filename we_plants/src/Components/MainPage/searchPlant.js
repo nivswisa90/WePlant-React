@@ -1,8 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import PlantResult from './plantResult';
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
 
-const SearchPlant = ({userInfo}) => {
+
+const SearchPlant = ({ userInfo }) => {
   // const userInfo = props.userInfo.props.location.state;
   const [result, setResult] = useState("");
   const [plantName, setPlantName] = useState({
@@ -29,31 +32,28 @@ const SearchPlant = ({userInfo}) => {
   };
 
   return (
-      <div className="row no-gutters">
-        <div className="col-12">
-          <h2 id="recent">Search Plants</h2>
-          <div className="form-inline my-2 my-lg-0">
-            <input
-              className="form-control mr-sm-2"
-              type="search"
-              name="name"
-              placeholder="Search"
-              value={plantName.name}
-              onChange={handleChange}
-              aria-label="Search"
-            />
-            <button
-              id="get-query-search"
-              className="btn btn-outline-dark my-2 my-sm-0"
-              type="submit"
-              onClick={handleSubmit}
-            >
+    <div className="row no-gutters">
+      <div className="col-12">
+        <h2 id="recent">Search Plants</h2>
+        <div >
+          <TextField id="outlined-basic"
+            className="search-form"
+            label="Search"
+            variant="outlined"
+            type="search"
+            name="name"
+            value={plantName.name}
+            onChange={handleChange}
+          />
+          <div className="search-button">
+            <Button id="get-query-search" onClick={handleSubmit} variant="outlined" color="primary" type="submit">
               Search
-            </button>
+            </Button>
           </div>
-          {!result ? <p id="possible-error">There is no results</p> : <PlantResult result={result} userId={userInfo.id}/>}
         </div>
+        {!result ? <p id="possible-error">There is no results</p> : <PlantResult result={result} userId={userInfo.id} />}
       </div>
+    </div>
   );
 };
 export default SearchPlant;

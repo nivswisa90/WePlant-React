@@ -17,13 +17,11 @@ const WeatherAPI = () => {
   };
 
   return (
-    <div className="row no-gutters">
-      <div className="col-sm-6 col-md-8" id="weather">
+      <div id="weather">
         <div id="description">{weatherFeatures.description}</div>
         <h1 id="temp">{weatherFeatures.celcius}</h1>
         <div id="location">{weatherFeatures.location}</div>
       </div>
-    </div>
   );
 };
 export default WeatherAPI;

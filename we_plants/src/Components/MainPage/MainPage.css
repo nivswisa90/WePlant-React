@@ -34,6 +34,7 @@ div {
   font-size: 1.3em;
   color: #626262;
   height: 30vh;
+  margin-left: 3vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -47,13 +48,11 @@ div {
     #c9edfa
   );
 }
-
 #temp {
   font-size: 81px;
   color: rgba(0, 0, 0, 0.9);
   font-weight: 100;
 }
-
 #weather h1 {
   margin: 0 auto;
   font-size: 2.2em;
@@ -61,7 +60,6 @@ div {
   color: #fff;
   font-size: 5em;
 }
-
 /* end of Weather widget */
 
 /* search Plants */
@@ -76,34 +74,14 @@ div {
   display: none;
   color: red;
 }
-
+.search-button{
+  display: inline-block;
+  margin-left: 5vh;
+  margin-top: 2vh;
+}
 /* end of search plant */
 
-/* .carousel-caption {
-  color: black;
-}
-.carousel-item {
-  margin-left: 9%;
-  margin-bottom: 0%;
-}
-
-/*slides card*/
-/* .carousel-indicators {
-  position: relative;
-}
-.carousel-indicators li {
-  background: #626262;
-}
-#btns {
-  margin-left: 25%;
-}
-.btn-light {
-  border-color: black;
-}  */
-/* end slides cards*/
-
 /*footer*/
-
 @media (min-width: 481px) {
   .mobile_header {
     display: none;

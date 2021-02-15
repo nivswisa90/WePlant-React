@@ -5,10 +5,9 @@ const UserInfo = ({userInfo}) => {
   return (
     <div className="row no-gutters">
       <div className="col-sm-6 col-md-8">
-        <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
+        <Avatar alt={userInfo.firstName} src='../../Images/martinFace.jpeg' />
         <h3 id="welcome_header">Welcome Back,</h3>
         <h3 id="user_header">
-          {/* {props.userInfo.props.location.state.firstName} {props.userInfo.props.location.state.lastName} */}
           {userInfo.firstName} {userInfo.lastName}
         </h3>
       </div>
