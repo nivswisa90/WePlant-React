@@ -3,7 +3,7 @@ import Avatar from "@material-ui/core/Avatar";
 
 const UserInfo = ({userInfo}) => {
   return (
-    <div className="row no-gutters">
+    <div className="no-gutters">
       <div className="col-sm-6 col-md-8">
         <Avatar alt={userInfo.firstName} src='../../Images/martinFace.jpeg' />
         <h3 id="welcome_header">Welcome Back,</h3>

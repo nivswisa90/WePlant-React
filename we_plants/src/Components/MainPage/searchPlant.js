@@ -32,7 +32,7 @@ const SearchPlant = ({ userInfo }) => {
   };
 
   return (
-    <div className="row no-gutters">
+    <div className="no-gutters">
       <div className="col-12">
         <h2 id="recent">Search Plants</h2>
         <div >

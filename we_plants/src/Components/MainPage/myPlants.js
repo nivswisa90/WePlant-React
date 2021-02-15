@@ -46,7 +46,7 @@ const MyPlants = ({userInfo, setUserInfo}) => {
   }
   
   return (
-    <div className="row no-gutters">
+    <div className="no-gutters">
       <div className="col-12">
         <h2 id="recent">My plants</h2>
         <div className="form-inline my-2 my-lg-0">

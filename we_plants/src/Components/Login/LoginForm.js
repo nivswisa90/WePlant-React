@@ -35,7 +35,7 @@ const LoginForm = ({ setUserInfo, submitForm }) => {
           </div>
           <div className="form-inputs">
             {/* <label className="form-label">Password</label> */}
-            <TextField id="outlined-basic"
+            <TextField
               className="input-style"
               label="Password"
               variant="outlined"
