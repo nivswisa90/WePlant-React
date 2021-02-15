@@ -5,13 +5,18 @@ import LoginForm from "./loginForm";
 // import axios from "axios";
 import { UserContext } from "../userContext";
 
+const useStyle = {
+  loginForm: {
+    marginLeft: '40vh',
+  }
+}
+
 
 const Login = (props) => {
-  // const [userId, setUserId] = useState(false);
+  // console.log(props.history.location.state);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const {userInfo,setUserInfo} = useContext(UserContext);
-  console.log(props);
-
+  const {userInfo, setUserInfo} = useContext(UserContext);
+  
    // console.log(userInfo);
   // const [userInfo, setUserInfo] = useState({
   //   id: '',
@@ -60,11 +65,13 @@ const Login = (props) => {
 
   return (
     <div>
-      {!( userInfo) ? (
-        <LoginForm setUserInfo={setUserInfo} submitForm={submitForm} />
+      {/* {(!props.location.state) ? ( */}
+        {(!userInfo) ? (
+          <div className='loginForm' style={useStyle.loginForm}>
+            <LoginForm setUserInfo={setUserInfo} submitForm={submitForm} />
+           </div>
      ) : (
-          // <MainPage userInfo={userInfo} />
-          <MainPage props={props} />
+          <MainPage userInfo={userInfo} setUserInfo={setUserInfo} />
          )}
     </div>
   );

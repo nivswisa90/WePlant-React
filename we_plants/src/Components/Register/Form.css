@@ -11,7 +11,36 @@ section,
 div {
   display: block;
 }
-.form-container {
+/* Container login*/
+@media (min-width: 600px){
+.MuiContainer-maxWidthSm {
+  height: 100vh;
+}
+.form-login-content {
+  border-radius: 10px;
+  position: relative;
+  /* background: #013838; */
+  height: 45vh;
+  border: 1px solid;
+  top: 15vh;
+}
+.form-inputs {
+  margin-bottom: 0.5rem;
+  margin-left: 22vh;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 200;
+}
+
+.form-inputs p {
+  font-size: 0.8rem;
+  margin-top: 0.5rem;
+  color: #f00e0e;
+}
+}
+
+/* End of Container */
+
+/* .form-container {
   width: 70%;
   position: absolute;
   top: 5%;
@@ -20,7 +49,7 @@ div {
   height: 75%;
   display: grid;
   grid-template-columns: 1fr 1fr;
-}
+} */
 
 #form-title {
   text-align: center;
@@ -51,13 +80,8 @@ div {
   color: #fff;
 }
 
-.form-content-right {
-  border-radius: 10px;
-  position: relative;
-  background: #013838;
-}
 
-.form {
+/* .form {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -68,7 +92,7 @@ div {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
+} */
 
 .form h1 {
   font-size: 1rem;
@@ -78,18 +102,7 @@ div {
   color: #fff;
 }
 
-.form-inputs {
-  margin-bottom: 0.5rem;
-  width: 80%;
-  font-family: "Montserrat", sans-serif;
-  font-weight: 200;
-}
 
-.form-inputs p {
-  font-size: 0.8rem;
-  margin-top: 0.5rem;
-  color: #f00e0e;
-}
 
 .form-label {
   display: inline-block;

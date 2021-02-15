@@ -2,6 +2,7 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import PlantCard from "../Plant/plantCard";
 import axios from 'axios';
+import {useHistory} from 'react-router-dom';
 
 const useStylesResult = makeStyles(() => ({
   root: {
@@ -16,16 +17,31 @@ const useStylesResult = makeStyles(() => ({
   },
 }));
 
-const MyPlants = (props) => {
+const MyPlants = ({userInfo, setUserInfo}) => {
+  const history = useHistory();
   const classes = useStylesResult();
   const cardType = 'myPlant';
-  const result = props.result.props.location.state;
+  // const result = props.result.props.location.state;
+  const result = userInfo;
 
   const deletePlant = (plantId) => {
     axios.delete(`http://localhost:3000/api/users/${result.id}?plantId=${plantId}`, {
       withCredentials: true,
     })
-    .then(docs => {console.log('Successfully delete')})
+    .then(docs => {
+      console.log(docs);
+      // history.push({
+      //   pathname:'/',
+      //   state: docs.data
+      // });
+      setUserInfo({
+        id: docs.data.id,
+        firstName: docs.data.firstName,
+        lastName: docs.data.lastName,
+        // myFavorites: docs.data.myFavorites,
+      });
+      console.log('Successfully delete');
+    })
     .catch(err => {console.log(err)});
   }
   

@@ -10,7 +10,7 @@ const Footer = (() => {
       </div>
       <div className="footer_icons">
         <p className="copyright-text">
-          Copyright &copy; 2020 All Rights Reserved by Martin & Niv
+          Copyright &copy; 2021 All Rights Reserved by Martin & Niv
       </p>
         <ul className="social-icons">
           <li>

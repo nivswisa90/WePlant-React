@@ -25,8 +25,9 @@ const useForm = (callback, validate) => {
     e.preventDefault();
     setErrors(validate(values));
     axios
-      .post("https://weplants.herokuapp.com/api/users", values)
+      .post("http://localhost:3000/api/users", values, {withCredentials: true})
       .then((res) => {
+        console.log(res);
         if (res.data === "User already exist") {
           alert(res.data);
         }

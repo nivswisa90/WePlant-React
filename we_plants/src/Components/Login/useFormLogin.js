@@ -38,16 +38,14 @@ const useForm = (callback, validate,setUserInfo) => {
           setIsSubmitted(true);
           setUserInfo({
             id: res.data.id,
-              firstName: res.data.firstName,
-              lastName: res.data.lastName,
-              myFavorites: res.data.myFavorites,
+            firstName: res.data.firstName,
+            lastName: res.data.lastName,
+            myFavorites: res.data.myFavorites,
           });
-          const firstName = res.data.firstName; 
-          console.log(firstName);
-          history.push({
-            pathname:'/',
-            state: res.data
-          });
+          // history.push({
+          //   pathname:'/',
+          //   state: res.data
+          // });
         }
       })
       .catch((err) => {
