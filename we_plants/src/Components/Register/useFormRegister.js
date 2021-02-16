@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-const useForm = (callback, validate) => {
+const useForm = (callback, validate, setUserInfo) => {
   const [values, setValues] = useState({
     firstName: "",
     lastName: "",
@@ -27,7 +27,12 @@ const useForm = (callback, validate) => {
     axios
       .post("http://localhost:3000/api/users", values, {withCredentials: true})
       .then((res) => {
-        console.log(res);
+        setUserInfo({
+          id: res.data.id,
+          firstName: res.data.firstName,
+          lastName: res.data.lastName,
+          myFavorites: res.data.myFavorites
+        })
         if (res.data === "User already exist") {
           alert(res.data);
         }

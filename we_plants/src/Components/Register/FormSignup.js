@@ -7,10 +7,11 @@ import "./form.css";
 import Container from '@material-ui/core/Container';
 import TextField from '@material-ui/core/TextField';
 
-const FormSignup = ({ submitForm }) => {
+const FormSignup = ({ submitForm, setUserInfo }) => {
   const { handleChange, handleSubmit, values, errors } = useForm(
     submitForm,
-    validate
+    validate,
+    setUserInfo
   );
 
   return (
@@ -19,7 +20,7 @@ const FormSignup = ({ submitForm }) => {
       <h4 id="form-title"> Register to WePlant</h4>
       <form onSubmit={handleSubmit} className="form" noValidate>
            <div className="form-inputs">
-            <TextField id="outlined-basic"
+            <TextField 
               label="First name"
               variant="outlined"
               type="text"
@@ -29,7 +30,7 @@ const FormSignup = ({ submitForm }) => {
           {errors.firstName && <p>{errors.firstName}</p>}
         </div>
         <div className="form-inputs">
-            <TextField id="outlined-basic"
+            <TextField 
             label="Last name"
             type="text"
             variant="outlined"
@@ -39,7 +40,7 @@ const FormSignup = ({ submitForm }) => {
           {errors.lastName && <p>{errors.lastName}</p>}
         </div>
         <div className="form-inputs">
-            <TextField id="outlined-basic"
+            <TextField 
             label="Email"
             type="email"
             variant="outlined"
@@ -50,7 +51,7 @@ const FormSignup = ({ submitForm }) => {
           {errors.email && <p>{errors.email}</p>}
         </div>
         <div className="form-inputs">
-        <TextField id="outlined-basic"
+        <TextField 
             label="Password"
             variant="outlined"
             type="password"
@@ -61,7 +62,7 @@ const FormSignup = ({ submitForm }) => {
           {errors.password && <p>{errors.password}</p>}
         </div>
         <div className="form-inputs">
-        <TextField id="outlined-basic"
+        <TextField 
             label="Confirm your password"
             variant="outlined"
             type="password"

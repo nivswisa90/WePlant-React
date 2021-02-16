@@ -8,15 +8,14 @@ import {UserContext} from '../userContext';
 const Form = (props) => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const {userInfo, setUserInfo} = useContext(UserContext);
-  // console.log(userInfo);
+
   function submitForm() {
     setIsSubmitted(true);
   }
-  console.log(props);
 
   return (
     <div className="form-container">
-      {!isSubmitted ? <FormSignup submitForm={submitForm} /> : <FormSuccess />}
+      {!isSubmitted ? <FormSignup submitForm={submitForm} setUserInfo={setUserInfo} /> : <FormSuccess /> }
     </div>
   );
 };
