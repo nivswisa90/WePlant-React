@@ -4,6 +4,13 @@ import ListSubheader from '@material-ui/core/ListSubheader';
 import PlantCard from "../Plant/plantCard";
 import axios from 'axios';
 import MailOutlineIcon from '@material-ui/icons/MailOutline';
+import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import DialogTitle from '@material-ui/core/DialogTitle';
 
 
 const useStylesResult = makeStyles(() => ({
@@ -17,10 +24,15 @@ const useStylesResult = makeStyles(() => ({
   tableData: {
     marginTop: 40,
   },
-  mailAdmin: {
-    background: '#626262',
-    opacity: '50%',
-    marginTop: '2vh',
+  contactUs: {
+    left: '70vh',
+    position: 'absolute'
+    // background: '#626262',
+    // marginTop: '2vh',
+  }, 
+  pContactUs: {
+    fontWeight: 300,
+    fontSize: 20,
   }
 }));
 
@@ -29,11 +41,21 @@ const PlantResult = ({ result, userId, setUserInfo }) => {
   const resultLength = result.length;
   const cardType = 'result';
 
+  const [open, setOpen] = React.useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
   const addToMyPlants = (plantId) => {
     axios.put(`http://localhost:3000/api/users/${userId}?plantId=${plantId}`, '', {
       withCredentials: true,
     })
-      .then(docs => { 
+      .then(docs => {
         setUserInfo({
           id: docs.data.id,
           firstName: docs.data.firstName,
@@ -48,7 +70,37 @@ const PlantResult = ({ result, userId, setUserInfo }) => {
     <section className={classes.tableData}>
       <div className={classes.root}>
         <ListSubheader style={{ height: 'auto' }} component="div">{`Found ${resultLength} plants`}</ListSubheader>
-        {resultLength === 0 ? <p className={classes.mailAdmin}> Contact us to add desire plant <MailOutlineIcon /></p> : <PlantCard result={result} cardType={cardType} addToMyPlants={addToMyPlants} />}
+        {resultLength !== 0 ? <PlantCard result={result} cardType={cardType} addToMyPlants={addToMyPlants} /> :
+          // <p className={classes.mailAdmin}> Contact us to add desire plant <MailOutlineIcon onClick={() => {console.log('test')}}/></p> 
+          <div className={classes.contactUs} >
+            <p className={classes.pContactUs}>Contact us to add desire plant</p>
+            <Button variant="outlined" color="primary" onClick={handleClickOpen}>
+              Contact Us
+      </Button>
+            <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
+              <DialogTitle id="form-dialog-title">Suggestion</DialogTitle>
+              <DialogContent>
+                <DialogContentText>
+                  Please enter the name of the plant that you wish and we will search and add it soon for you.
+          </DialogContentText>
+                <TextField
+                  autoFocus
+                  margin="dense"
+                  id="name"
+                  label="Plant name"
+                  type="text"
+                  fullWidth
+                />
+              </DialogContent>
+              <DialogActions>
+                <Button onClick={handleClose} color="primary">
+                  Cancel
+          </Button>
+                <Button onClick={handleClose} color="primary" autoFocus>
+                  Send
+          </Button>
+              </DialogActions>
+            </Dialog></div>}
       </div>
     </section >
   );

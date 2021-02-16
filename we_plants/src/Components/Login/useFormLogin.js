@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 // import {useHistory} from 'react-router-dom';
 
-const useForm = (callback, validate,setUserInfo) => {
+const useForm = (callback, validate, setUserInfo) => {
   const [values, setValues] = useState({
     id: "",
     email: "",
