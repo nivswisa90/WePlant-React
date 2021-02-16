@@ -41,9 +41,9 @@ const useStyles = makeStyles((theme) => ({
 
 const PlantCard = ({ result, cardType, deletePlant, addToMyPlants }) => {
   const classes = useStyles();
-  const [accept , setAccept] = useState(false);
   const [anchorEl, setAnchorEl] = useState(null);
   const [open, setOpen] = useState(false);
+  const [plantId, setPlantId] = useState(null);
 
   const handleClickDescription = (event) => {
     setAnchorEl(event.currentTarget);
@@ -54,19 +54,23 @@ const PlantCard = ({ result, cardType, deletePlant, addToMyPlants }) => {
   };
 
   const handleClick = (id) => {
+    setPlantId(id);
     setOpen(true);
-    
-    if (cardType === 'myPlant') {
-      deletePlant(id);
-    }
-    else if (cardType === 'result') {
-      addToMyPlants(id);
-    }
   }
 
-  const handleClose = () => {
+  const handleClose = (condition = 'false') => {
+    if (condition === 'Agree') {
+      if (cardType === 'myPlant') {
+        if(plantId)
+          deletePlant(plantId);
+      }
+      else if (cardType === 'result') {
+        if(plantId)
+          addToMyPlants(plantId);
+      }
+    }
     setOpen(false);
-    setAccept(true);
+    setPlantId(null);
   };
 
   const openPopDescription = Boolean(anchorEl);
@@ -74,7 +78,7 @@ const PlantCard = ({ result, cardType, deletePlant, addToMyPlants }) => {
 
   return (
     <GridList className={classes.gridList} cols={1}>
-      {result.map((res) => (
+      {result.map(res => (
         <GridListTile style={{ height: 500 }} key={res.id}>
           <img src={res.imageUrl} alt={res.name} />
           <GridListTileBar
@@ -97,14 +101,14 @@ const PlantCard = ({ result, cardType, deletePlant, addToMyPlants }) => {
                   <DialogTitle id="alert-dialog-title">{"Are you sure ?"}</DialogTitle>
                   <DialogContent>
                     <DialogContentText id="alert-dialog-description">
-                      {cardType !== 'myPlant' ? `Are you sure you want to add ${res.plantName} to My plants?` : `Are you sure you want to delete ${res.plantName} from My plants?` }
+                      {cardType !== 'myPlant' ? `Are you sure you want to add ${res.plantName} to My plants?` : `Are you sure you want to delete ${res.plantName} from My plants?`}
                     </DialogContentText>
                   </DialogContent>
                   <DialogActions>
-                    <Button onClick={handleClose} color="primary" >
+                    <Button onClick={() => { handleClose('Disagree')}} color="primary" >
                       Disagree
                     </Button>
-                    <Button onClick={handleClose} color="primary" autoFocus>
+                    <Button onClick={() => { handleClose('Agree') }} color="primary" autoFocus>
                       Agree
                     </Button>
                   </DialogActions>

@@ -20,12 +20,8 @@ const App = () => {
   const valueProvider = useMemo(() => ({ userInfo, setUserInfo }), [userInfo, setUserInfo]);
 
   useEffect(() => {
-    console.log(userInfo);
-  }, [userInfo]);
 
-  // useEffect(() => {
-  //   setUserInfo();
-  // }, []);
+  }, []);
 
   return (
     <ScopedCssBaseline>

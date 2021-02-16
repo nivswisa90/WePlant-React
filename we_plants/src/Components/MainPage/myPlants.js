@@ -29,7 +29,6 @@ const MyPlants = ({userInfo, setUserInfo}) => {
       withCredentials: true,
     })
     .then(docs => {
-      console.log(docs);
       // history.push({
       //   pathname:'/',
       //   state: docs.data
@@ -38,9 +37,8 @@ const MyPlants = ({userInfo, setUserInfo}) => {
         id: docs.data.id,
         firstName: docs.data.firstName,
         lastName: docs.data.lastName,
-        // myFavorites: docs.data.myFavorites,
+        myFavorites: docs.data.myFavorites,
       });
-      console.log('Successfully delete');
     })
     .catch(err => {console.log(err)});
   }

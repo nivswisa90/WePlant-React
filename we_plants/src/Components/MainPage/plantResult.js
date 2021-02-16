@@ -24,7 +24,7 @@ const useStylesResult = makeStyles(() => ({
   }
 }));
 
-const PlantResult = ({ result, userId }) => {
+const PlantResult = ({ result, userId, setUserInfo }) => {
   const classes = useStylesResult();
   const resultLength = result.length;
   const cardType = 'result';
@@ -33,7 +33,14 @@ const PlantResult = ({ result, userId }) => {
     axios.put(`http://localhost:3000/api/users/${userId}?plantId=${plantId}`, '', {
       withCredentials: true,
     })
-      .then(docs => { console.log('Successfully added')})
+      .then(docs => { 
+        setUserInfo({
+          id: docs.data.id,
+          firstName: docs.data.firstName,
+          lastName: docs.data.lastName,
+          myFavorites: docs.data.myFavorites,
+        });
+      })
       .catch(err => { console.log(err) });
   }
 

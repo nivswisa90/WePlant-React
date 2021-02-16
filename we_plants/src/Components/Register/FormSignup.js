@@ -24,7 +24,7 @@ const FormSignup = ({ submitForm }) => {
               variant="outlined"
               type="text"
               name="firstName"
-              value={values.email}
+              value={values.firstName}
               onChange={handleChange} />
           {errors.firstName && <p>{errors.firstName}</p>}
         </div>

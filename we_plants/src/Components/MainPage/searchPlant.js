@@ -5,7 +5,7 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 
 
-const SearchPlant = ({ userInfo }) => {
+const SearchPlant = ({ userInfo, setUserInfo }) => {
   // const userInfo = props.userInfo.props.location.state;
   const [result, setResult] = useState("");
   const [plantName, setPlantName] = useState({
@@ -51,7 +51,7 @@ const SearchPlant = ({ userInfo }) => {
             </Button>
           </div>
         </div>
-        {!result ? <p></p> : <PlantResult result={result} userId={userInfo.id} />}
+        {!result ? <p></p> : <PlantResult result={result} userId={userInfo.id} setUserInfo={setUserInfo}/>}
       </div>
     </div>
   );
