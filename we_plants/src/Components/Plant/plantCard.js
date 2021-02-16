@@ -61,11 +61,11 @@ const PlantCard = ({ result, cardType, deletePlant, addToMyPlants }) => {
   const handleClose = (condition = 'false') => {
     if (condition === 'Agree') {
       if (cardType === 'myPlant') {
-        if(plantId)
+        if (plantId)
           deletePlant(plantId);
       }
       else if (cardType === 'result') {
-        if(plantId)
+        if (plantId)
           addToMyPlants(plantId);
       }
     }
@@ -105,7 +105,7 @@ const PlantCard = ({ result, cardType, deletePlant, addToMyPlants }) => {
                     </DialogContentText>
                   </DialogContent>
                   <DialogActions>
-                    <Button onClick={() => { handleClose('Disagree')}} color="primary" >
+                    <Button onClick={() => { handleClose('Disagree') }} color="primary" >
                       Disagree
                     </Button>
                     <Button onClick={() => { handleClose('Agree') }} color="primary" autoFocus>
@@ -113,8 +113,8 @@ const PlantCard = ({ result, cardType, deletePlant, addToMyPlants }) => {
                     </Button>
                   </DialogActions>
                 </Dialog>
-                <IconButton>
-                  <InfoIcon className={classes.title} onClick={handleClickDescription} >
+                <IconButton onClick={handleClickDescription}>
+                  <InfoIcon className={classes.title}  >
                   </InfoIcon>
                 </IconButton>
                 <Popover

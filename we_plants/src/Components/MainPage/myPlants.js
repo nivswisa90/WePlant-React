@@ -2,7 +2,7 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import PlantCard from "../Plant/plantCard";
 import axios from 'axios';
-import {useHistory} from 'react-router-dom';
+// import {useHistory} from 'react-router-dom';
 
 const useStylesResult = makeStyles(() => ({
   root: {
@@ -18,7 +18,7 @@ const useStylesResult = makeStyles(() => ({
 }));
 
 const MyPlants = ({userInfo, setUserInfo}) => {
-  const history = useHistory();
+  // const history = useHistory();
   const classes = useStylesResult();
   const cardType = 'myPlant';
   // const result = props.result.props.location.state;

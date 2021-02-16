@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import {useHistory} from 'react-router-dom';
+// import {useHistory} from 'react-router-dom';
 
 const useForm = (callback, validate,setUserInfo) => {
   const [values, setValues] = useState({
@@ -8,7 +8,7 @@ const useForm = (callback, validate,setUserInfo) => {
     email: "",
     password: "",
   });
-  const history = useHistory();
+  // const history = useHistory();
 
   const [errors, setErrors] = useState({});
   const [isSubmitted, setIsSubmitted] = useState(false);
