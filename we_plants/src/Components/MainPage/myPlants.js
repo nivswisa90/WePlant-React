@@ -2,7 +2,6 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import PlantCard from "../Plant/plantCard";
 import axios from 'axios';
-// import {useHistory} from 'react-router-dom';
 
 const useStylesResult = makeStyles(() => ({
   root: {
@@ -18,10 +17,8 @@ const useStylesResult = makeStyles(() => ({
 }));
 
 const MyPlants = ({userInfo, setUserInfo}) => {
-  // const history = useHistory();
   const classes = useStylesResult();
   const cardType = 'myPlant';
-  // const result = props.result.props.location.state;
   const result = userInfo;
 
   const deletePlant = (plantId) => {
@@ -29,12 +26,9 @@ const MyPlants = ({userInfo, setUserInfo}) => {
       withCredentials: true,
     })
     .then(docs => {
-      // history.push({
-      //   pathname:'/',
-      //   state: docs.data
-      // });
       setUserInfo({
         id: docs.data.id,
+        role: docs.data.role,
         firstName: docs.data.firstName,
         lastName: docs.data.lastName,
         myFavorites: docs.data.myFavorites,
