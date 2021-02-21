@@ -32,7 +32,8 @@ const useForm = (callback, validate, setUserInfo) => {
           role: res.data.role,
           firstName: res.data.firstName,
           lastName: res.data.lastName,
-          myFavorites: res.data.myFavorites
+          myFavorites: res.data.myFavorites,
+          email: res.data.email
         })
         if (res.data === "User already exist") {
           alert(res.data);

@@ -41,6 +41,7 @@ const useForm = (callback, validate, setUserInfo) => {
             firstName: res.data.firstName,
             lastName: res.data.lastName,
             myFavorites: res.data.myFavorites,
+            email: res.data.email
           });
         }
       })

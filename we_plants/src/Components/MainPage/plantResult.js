@@ -36,14 +36,16 @@ const useStylesResult = makeStyles(() => ({
   }
 }));
 
-const PlantResult = ({ result, userId, setUserInfo }) => {
+const PlantResult = ({ result, userInfo, setUserInfo }) => {
   const classes = useStylesResult();
   const resultLength = result.length;
   const cardType = 'result';
 
   const [open, setOpen] = useState(false);
   const [mail, setMail] = useState({
+    type: 'suggestion',
     plantName: "",
+    email: userInfo.email
   })
 
   const handleChange = (e) => {
@@ -69,7 +71,7 @@ const PlantResult = ({ result, userId, setUserInfo }) => {
   }
 
   const addToMyPlants = (plantId) => {
-    axios.put(`http://localhost:3000/api/users/${userId}?plantId=${plantId}`, '', {
+    axios.put(`http://localhost:3000/api/users/${userInfo.Id}?plantId=${plantId}`, '', {
       withCredentials: true,
     })
       .then(docs => {
@@ -79,6 +81,7 @@ const PlantResult = ({ result, userId, setUserInfo }) => {
           firstName: docs.data.firstName,
           lastName: docs.data.lastName,
           myFavorites: docs.data.myFavorites,
+          email: docs.data.email
         });
       })
       .catch(err => { console.log(err) });

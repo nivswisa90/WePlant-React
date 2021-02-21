@@ -32,7 +32,8 @@ const App = () => {
               role:docs.data.role,
               firstName: docs.data.firstName,
               lastName: docs.data.lastName,
-              myFavorites: docs.data.myFavorites
+              myFavorites: docs.data.myFavorites,
+              email: docs.data.email
             }
           )
         })

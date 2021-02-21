@@ -32,6 +32,7 @@ const MyPlants = ({userInfo, setUserInfo}) => {
         firstName: docs.data.firstName,
         lastName: docs.data.lastName,
         myFavorites: docs.data.myFavorites,
+        email: docs.data.email
       });
     })
     .catch(err => {console.log(err)});

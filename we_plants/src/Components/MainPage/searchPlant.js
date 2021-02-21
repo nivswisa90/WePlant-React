@@ -50,7 +50,7 @@ const SearchPlant = ({ userInfo, setUserInfo }) => {
             </Button>
           </div>
         </div>
-        {!result ? <p></p> : <PlantResult result={result} userId={userInfo.id} setUserInfo={setUserInfo}/>}
+        {!result ? <p></p> : <PlantResult result={result} userInfo={userInfo} setUserInfo={setUserInfo}/>}
       </div>
     </div>
   );
