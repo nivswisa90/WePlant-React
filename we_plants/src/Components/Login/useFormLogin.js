@@ -8,7 +8,6 @@ const useForm = (callback, validate, setUserInfo) => {
     email: "",
     password: "",
   });
-  // const history = useHistory();
 
   const [errors, setErrors] = useState({});
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -43,10 +42,6 @@ const useForm = (callback, validate, setUserInfo) => {
             lastName: res.data.lastName,
             myFavorites: res.data.myFavorites,
           });
-          // history.push({
-          //   pathname:'/',
-          //   state: res.data
-          // });
         }
       })
       .catch((err) => {
