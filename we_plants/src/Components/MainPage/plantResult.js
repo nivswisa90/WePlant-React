@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import ListSubheader from '@material-ui/core/ListSubheader';
 import PlantCard from "../Plant/plantCard";
@@ -41,15 +41,32 @@ const PlantResult = ({ result, userId, setUserInfo }) => {
   const resultLength = result.length;
   const cardType = 'result';
 
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
+  const [mail, setMail] = useState({
+    plantName: "",
+  })
 
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setMail({
+        ...mail,
+        [name]: value,
+    });
+};
   const handleClickOpen = () => {
     setOpen(true);
   };
 
   const handleClose = () => {
+    axios.post(`http://localhost:3000/api/mail`,mail,{
+      withCredentials:true,
+    })
+    .then(docs => {
+      console.log("succes");
+    })
+    .catch(err => { console.log(err)});
     setOpen(false);
-  };
+  }
 
   const addToMyPlants = (plantId) => {
     axios.put(`http://localhost:3000/api/users/${userId}?plantId=${plantId}`, '', {
@@ -72,7 +89,6 @@ const PlantResult = ({ result, userId, setUserInfo }) => {
       <div className={classes.root}>
         <ListSubheader style={{ height: 'auto' }} component="div">{`Found ${resultLength} plants`}</ListSubheader>
         {resultLength !== 0 ? <PlantCard result={result} cardType={cardType} addToMyPlants={addToMyPlants} /> :
-          // <p className={classes.mailAdmin}> Contact us to add desire plant <MailOutlineIcon onClick={() => {console.log('test')}}/></p> 
           <div className={classes.contactUs} >
             <p className={classes.pContactUs}>Contact us to add desire plant</p>
             <Button variant="outlined" color="primary" onClick={handleClickOpen}>
@@ -86,10 +102,13 @@ const PlantResult = ({ result, userId, setUserInfo }) => {
           </DialogContentText>
                 <TextField
                   autoFocus
+                  name="plantName"
                   margin="dense"
                   id="name"
                   label="Plant name"
                   type="text"
+                  value={mail.plantName}
+                  onChange={handleChange}
                   fullWidth
                 />
               </DialogContent>

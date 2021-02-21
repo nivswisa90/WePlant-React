@@ -6,7 +6,6 @@ import Button from '@material-ui/core/Button';
 
 
 const SearchPlant = ({ userInfo, setUserInfo }) => {
-  // const userInfo = props.userInfo.props.location.state;
   const [result, setResult] = useState("");
   const [plantName, setPlantName] = useState({
     name: "",
