@@ -1,8 +1,8 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import MainPage from "../MainPage/mainPage";
 import "../Register/form.css";
+import AdminMainPage from "../Admin/adminMainPage";
 import LoginForm from "./loginForm";
-// import axios from "axios";
 import { UserContext } from "../userContext";
 
 const useStyle = {
@@ -11,53 +11,9 @@ const useStyle = {
   }
 }
 
-
 const Login = (props) => {
-  // console.log(props.history.location.state);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const {userInfo, setUserInfo} = useContext(UserContext);
-  
-   // console.log(userInfo);
-  // const [userInfo, setUserInfo] = useState({
-  //   id: '',
-  //   firstName: '',
-  //   lastName: '',
-  //   myFavorites: []
-  // });
-
-
-    // const getUserInfo = () => {
-    //   axios
-    //     .get(`http://localhost:3000/api/users/${userId}`, {
-    //       withCredentials: true,
-    //     })
-    //     .then((res) => {
-    //       if(res.data){
-    //         setUserInfo({
-    //           id: res.data.id,
-    //           firstName: res.data.firstName,
-    //           lastName: res.data.lastName,
-    //           myFavorites: res.data.myFavorites,
-    //         });
-    //       }
-    //     })
-    //     .catch((err) => console.log(err));
-    // };
-    // const checkUserConnection = () => {
-    //   axios
-    //     .get(`http://localhost:3000/api/users`, { withCredentials: true })
-    //     .then((res) => {
-    //       if (res.data.id) {
-    //         setUserId(res.data.id);
-    //         getUserInfo();
-    //       } else {
-    //         setUserId(false);
-    //       }
-    //     })
-    //     .catch((err) => console.log(err));
-    // };
-    // checkUserConnection();
-
+  const { userInfo, setUserInfo } = useContext(UserContext);
 
   const submitForm = () => {
     setIsLoggedIn(true);
@@ -65,12 +21,12 @@ const Login = (props) => {
 
   return (
     <div>
-        {(!userInfo) ? (
-          <div className='loginForm' style={useStyle.loginForm}>
-            <LoginForm setUserInfo={setUserInfo} submitForm={submitForm} />
-           </div>
-     ) : (
-          <MainPage userInfo={userInfo} setUserInfo={setUserInfo} />
+      {(!userInfo) ? (
+        <div className='loginForm' style={useStyle.loginForm}>
+          <LoginForm setUserInfo={setUserInfo} submitForm={submitForm} />
+        </div>
+      ) : (userInfo.role === 'user' ? <MainPage userInfo={userInfo} setUserInfo={setUserInfo} /> :
+       <AdminMainPage userInfo={userInfo} setUserInfo={setUserInfo} />
          )}
     </div>
   );

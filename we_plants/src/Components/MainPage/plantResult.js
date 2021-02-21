@@ -58,6 +58,7 @@ const PlantResult = ({ result, userId, setUserInfo }) => {
       .then(docs => {
         setUserInfo({
           id: docs.data.id,
+          role: docs.data.role,
           firstName: docs.data.firstName,
           lastName: docs.data.lastName,
           myFavorites: docs.data.myFavorites,

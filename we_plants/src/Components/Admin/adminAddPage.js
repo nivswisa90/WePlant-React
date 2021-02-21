@@ -205,7 +205,7 @@ const AdminAddPLant = () => {
                         variant="outlined"
                     />
                 </div>
-                <NavLink to="/Login">
+                {/* <NavLink to="/Login"> */}
                     <Button
                         type="submit"
                         variant="contained"
@@ -216,7 +216,7 @@ const AdminAddPLant = () => {
                     >
                         Save
                 </Button>
-                </NavLink>
+                {/* </NavLink> */}
             </form>
 
         </Container>

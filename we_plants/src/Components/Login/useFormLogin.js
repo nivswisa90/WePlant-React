@@ -38,6 +38,7 @@ const useForm = (callback, validate, setUserInfo) => {
           setIsSubmitted(true);
           setUserInfo({
             id: res.data.id,
+            role: res.data.role,
             firstName: res.data.firstName,
             lastName: res.data.lastName,
             myFavorites: res.data.myFavorites,
