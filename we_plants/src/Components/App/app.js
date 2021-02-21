@@ -29,7 +29,7 @@ const App = () => {
           setUserInfo(
             {
               id: docs.data.id,
-              role:docs.role,
+              role:docs.data.role,
               firstName: docs.data.firstName,
               lastName: docs.data.lastName,
               myFavorites: docs.data.myFavorites
