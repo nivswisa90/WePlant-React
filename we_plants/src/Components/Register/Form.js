@@ -15,7 +15,7 @@ const Form = (props) => {
 
   return (
     <div className="form-container">
-      {!isSubmitted ? <FormSignup submitForm={submitForm} setUserInfo={setUserInfo} /> : <FormSuccess /> }
+      {!isSubmitted ? <FormSignup submitForm={submitForm} setUserInfo={setUserInfo} /> : <FormSuccess userInfo={userInfo}/> }
     </div>
   );
 };

@@ -12,6 +12,7 @@ const useStyle = {
 }
 
 const Login = (props) => {
+  console.log(props);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const { userInfo, setUserInfo } = useContext(UserContext);
 
