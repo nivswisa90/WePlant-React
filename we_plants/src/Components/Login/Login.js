@@ -65,7 +65,6 @@ const Login = (props) => {
 
   return (
     <div>
-      {/* {(!props.location.state) ? ( */}
         {(!userInfo) ? (
           <div className='loginForm' style={useStyle.loginForm}>
             <LoginForm setUserInfo={setUserInfo} submitForm={submitForm} />
