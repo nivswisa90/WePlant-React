@@ -1,23 +1,36 @@
 import React, { useEffect, useMemo, useState } from "react";
+import { makeStyles } from '@material-ui/core/styles';
 import backgroundImage from '../../Images/BackGroundImage.png';
 import Footer from "../MainPage/footer";
 import "./app.css";
 import ReactRouter from '../../Router/router';
 import { UserContext } from '../userContext';
 import ScopedCssBaseline from '@material-ui/core/CssBaseline';
+import Container from '@material-ui/core/Container';
+
 import Cookies from 'js-cookie';
 import axios from "axios";
-
-const styles = {
+const useStyles = makeStyles({
   backGroundImage: {
     backgroundImage: `url(${backgroundImage})`,
     backgroundRepeat: 'no-repeat',
-    height: '230vh',
+    height: '240vh',
     width: '100%',
     backgroundSize: 'cover'
   }
-}
+});
+// const styles = {
+//   backGroundImage: {
+//     backgroundImage: `url(${backgroundImage})`,
+//     backgroundRepeat: 'no-repeat',
+//     height: '240vh',
+//     width: '100%',
+//     backgroundSize: 'cover'
+//   }
+// }
 const App = () => {
+  const classes = useStyles();
+
   const [userInfo, setUserInfo] = useState(null);
   const valueProvider = useMemo(() => ({ userInfo, setUserInfo }), [userInfo, setUserInfo]);
 
@@ -43,15 +56,13 @@ const App = () => {
 
   return (
     <ScopedCssBaseline>
-      <div>
-        <div style={styles.backGroundImage} >
+      <div className={classes.backGroundImage} >
           <UserContext.Provider value={valueProvider}>
             <ReactRouter />
           </UserContext.Provider>
         </div>
         <Footer />
-      </div>
-    </ScopedCssBaseline>
+      </ScopedCssBaseline>
   );
 };
 

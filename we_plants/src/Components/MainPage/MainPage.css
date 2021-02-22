@@ -18,6 +18,20 @@ div {
 }
 /* End container style */
 
+/*  bouttons */
+.logoutButton {
+  position: absolute;
+  margin-left: 120vh;
+}
+.createPlantButton{
+  /* position: absolute; */
+  margin-left: 20vh;
+  margin-top:5vh;
+  left: 80vh;
+  top: 50vh;
+}
+/* End of button */
+
 /* Weather API */
 #description {
   margin-left: 5%;

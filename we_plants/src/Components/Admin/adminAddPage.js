@@ -18,16 +18,15 @@ const useStyles = makeStyles((theme) => ({
     },
     button: {
         margin: theme.spacing(1),
-        marginLeft: '26vh',
+        marginLeft: '24vh',
         marginTop: '5vh',
     },
     container: {
         marginLeft: '50vh',
         border: '1px solid black',
         borderRadius: '5px',
-        // height: '85vh',
+        width: '70vh',
         background: 'rgba(250, 235, 215, 0.39)',
-
     },
     title: {
         marginLeft: '12vh',
@@ -76,13 +75,10 @@ const AdminAddPlant = () => {
             .catch((err) => {
                 console.log(err);
             });
-        return (
-            <Link to='MainPage' />
-        )
     };
 
     return (
-        <Container maxWidth="sm" className={classes.container}>
+        <Container className={classes.container}>
             <Typography variant="h2" gutterBottom className={classes.title}>
                 Add new plant
             </Typography>

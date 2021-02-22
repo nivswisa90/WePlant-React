@@ -1,10 +1,8 @@
 import React, { useState,useContext } from "react";
 import "./form.css";
 import FormSignup from "./formSignup";
-import FormSuccess from "./formSuccess";
 import {UserContext} from '../userContext';
 import Login from "../Login/login";
-import MainPage from "../MainPage/mainPage";
 
 
 const Form = (props) => {
