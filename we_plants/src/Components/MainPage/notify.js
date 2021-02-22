@@ -17,7 +17,7 @@ const Notify = ({ userInfo }) => {
             <div className={classes.root}>
                 {userInfo.myFavorites.map(favorite => (
                     <div key={favorite.id}>
-                        <Notification favorite={favorite} />
+                        <Notification favorite={favorite} mail={userInfo.email} firstName={userInfo.firstName}/>
                     </div>
                 ))}
             </div>
