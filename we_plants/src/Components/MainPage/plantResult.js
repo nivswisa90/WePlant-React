@@ -29,7 +29,7 @@ const useStylesResult = makeStyles(() => ({
     position: 'absolute'
     // background: '#626262',
     // marginTop: '2vh',
-  }, 
+  },
   pContactUs: {
     fontWeight: 300,
     fontSize: 20,
@@ -51,27 +51,27 @@ const PlantResult = ({ result, userInfo, setUserInfo }) => {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setMail({
-        ...mail,
-        [name]: value,
+      ...mail,
+      [name]: value,
     });
-};
+  };
   const handleClickOpen = () => {
     setOpen(true);
   };
 
   const handleClose = () => {
-    axios.post(`http://localhost:3000/api/mail`,mail,{
-      withCredentials:true,
+    axios.post(`http://localhost:3000/api/mail`, mail, {
+      withCredentials: true,
     })
-    .then(docs => {
-      console.log("succes");
-    })
-    .catch(err => { console.log(err)});
+      .then(docs => {
+        console.log("success");
+      })
+      .catch(err => { console.log(err) });
     setOpen(false);
   }
 
   const addToMyPlants = (plantId) => {
-    axios.put(`http://localhost:3000/api/users/${userInfo.Id}?plantId=${plantId}`, '', {
+    axios.put(`http://localhost:3000/api/users/${userInfo.id}?plantId=${plantId}`, '', {
       withCredentials: true,
     })
       .then(docs => {
@@ -91,7 +91,7 @@ const PlantResult = ({ result, userInfo, setUserInfo }) => {
     <section className={classes.tableData}>
       <div className={classes.root}>
         <ListSubheader style={{ height: 'auto' }} component="div">{`Found ${resultLength} plants`}</ListSubheader>
-        {resultLength !== 0 ? <PlantCard result={result} cardType={cardType} addToMyPlants={addToMyPlants} /> :
+        {resultLength !== 0 ? <PlantCard result={result} cardType={cardType} addToMyPlants={addToMyPlants}  /> :
           <div className={classes.contactUs} >
             <p className={classes.pContactUs}>Contact us to add desire plant</p>
             <Button variant="outlined" color="primary" onClick={handleClickOpen}>

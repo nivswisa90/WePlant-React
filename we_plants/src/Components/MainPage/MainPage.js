@@ -7,14 +7,14 @@ import SearchPlant from "./searchPlant";
 import MyPlants from "./myPlants";
 import Notify from "./notify";
 
-
-const MainPage = ({userInfo, setUserInfo}) => {
+const MainPage = ({ userInfo, setUserInfo, handleLogOut }) => {
   return (
     <Container maxWidth="sm">
+      <button onClick={handleLogOut}>Logout</button>
       <UserInfo userInfo={userInfo} />
       <WeatherAPI />
-      <SearchPlant userInfo={userInfo} setUserInfo={setUserInfo}/>
-      <MyPlants userInfo={userInfo} setUserInfo={setUserInfo}/>
+      <SearchPlant userInfo={userInfo} setUserInfo={setUserInfo} />
+      <MyPlants userInfo={userInfo} setUserInfo={setUserInfo} />
       <Notify userInfo={userInfo} />
     </Container>
   );

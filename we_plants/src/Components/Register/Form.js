@@ -3,6 +3,8 @@ import "./form.css";
 import FormSignup from "./formSignup";
 import FormSuccess from "./formSuccess";
 import {UserContext} from '../userContext';
+import Login from "../Login/login";
+import MainPage from "../MainPage/mainPage";
 
 
 const Form = (props) => {
@@ -15,7 +17,7 @@ const Form = (props) => {
 
   return (
     <div className="form-container">
-      {!isSubmitted ? <FormSignup submitForm={submitForm} setUserInfo={setUserInfo} /> : <FormSuccess userInfo={userInfo}/> }
+      {!isSubmitted ? <FormSignup submitForm={submitForm} setUserInfo={setUserInfo} /> : <Login /> }
     </div>
   );
 };

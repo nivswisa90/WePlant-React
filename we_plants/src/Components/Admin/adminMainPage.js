@@ -9,9 +9,10 @@ import { NavLink } from "react-router-dom";
 import { Button } from "@material-ui/core";
 
 
-const AdminMainPage = ({userInfo, setUserInfo}) => {
+const AdminMainPage = ({userInfo, setUserInfo, handleLogOut}) => {
   return (
     <Container maxWidth="sm">
+      <button onClick={handleLogOut}>Logout</button>
       <UserInfo userInfo={userInfo} />
       <WeatherAPI />
       <SearchPlant userInfo={userInfo} setUserInfo={setUserInfo}/>
