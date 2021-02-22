@@ -8,7 +8,7 @@ const Footer = (() => {
   return (
     <div className="site-footer">
       <div className="footer_about">
-        <Link to="/mainpage" className="title">We Plants</Link>
+        <Link to="/login" className="title">We Plants</Link>
         <Link to="#" className="aboutUs">About Us</Link>
       </div>
       <div className="footer_icons">

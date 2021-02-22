@@ -6,6 +6,13 @@ import Typography from '@material-ui/core/Typography';
 import SaveIcon from '@material-ui/icons/Save';
 import Button from '@material-ui/core/Button';
 import axios from "axios";
+import { NavLink } from "react-router-dom";
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import DialogTitle from '@material-ui/core/DialogTitle';
+
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -48,7 +55,23 @@ const AdminAddPlant = () => {
         temperature: ''
     });
 
+    const [open, setOpen] = useState(false);
+
+    const handleClickOpen = () => {
+        if (values.plantName !== "" && values.specie !== "" && values.temperature !== "" && values.imageUrl !== "" && values.description !== "" && values.family !== "" && values.light !== "" && values.water !== "" && values.feed !== "") {
+            setOpen(true);
+        }
+        else {
+            alert('Please fill all the form');
+        }
+    };
+
+    const handleClose = () => {
+        setOpen(false);
+    };
+
     const handleChange = (e) => {
+
         const { name, value } = e.target;
         setValues({
             ...values,
@@ -64,7 +87,7 @@ const AdminAddPlant = () => {
             })
             .then((res) => {
                 if (res.data === "Successfully added plant!") {
-                    alert('Plant added to data base');
+                    console.log('Plant added to DB');
                 }
                 else {
                     console.log("Error");
@@ -97,6 +120,7 @@ const AdminAddPlant = () => {
                         value={values.plantName}
                         onChange={handleChange}
                         variant="outlined"
+                        required
                     />
                 </div>
                 <div>
@@ -110,6 +134,7 @@ const AdminAddPlant = () => {
                         value={values.specie}
                         onChange={handleChange}
                         variant="outlined"
+                        required
                     />
                 </div>
                 <div>
@@ -123,6 +148,7 @@ const AdminAddPlant = () => {
                         value={values.family}
                         onChange={handleChange}
                         variant="outlined"
+                        required
                     />
                 </div>
                 <div>
@@ -136,6 +162,7 @@ const AdminAddPlant = () => {
                         value={values.imageUrl}
                         onChange={handleChange}
                         variant="outlined"
+                        required
                     />
                 </div>
                 <div>
@@ -149,6 +176,7 @@ const AdminAddPlant = () => {
                         value={values.description}
                         onChange={handleChange}
                         variant="outlined"
+                        required
                     />
                 </div>
                 <div className={classes.subTitle}>
@@ -167,6 +195,7 @@ const AdminAddPlant = () => {
                         value={values.water}
                         onChange={handleChange}
                         variant="outlined"
+                        required
                     />
                     <TextField
                         id="outlined-multiline-flexible"
@@ -178,6 +207,7 @@ const AdminAddPlant = () => {
                         value={values.feed}
                         onChange={handleChange}
                         variant="outlined"
+                        required
                     />
                     <TextField
                         id="outlined-multiline-flexible"
@@ -189,6 +219,7 @@ const AdminAddPlant = () => {
                         value={values.light}
                         onChange={handleChange}
                         variant="outlined"
+                        required
                     />
                     <TextField
                         id="outlined-multiline-flexible"
@@ -200,9 +231,9 @@ const AdminAddPlant = () => {
                         value={values.temperature}
                         onChange={handleChange}
                         variant="outlined"
+                        required
                     />
                 </div>
-                {/* <NavLink to="/Login"> */}
                 <Button
                     type="submit"
                     variant="contained"
@@ -210,10 +241,33 @@ const AdminAddPlant = () => {
                     size="large"
                     className={classes.button}
                     startIcon={<SaveIcon />}
+                    onClick={handleClickOpen}
                 >
-                    Save
+                    Add
                 </Button>
-                {/* </NavLink> */}
+                <Dialog
+                    open={open}
+                    onClose={handleClose}
+                    aria-labelledby="alert-dialog-title"
+                    aria-describedby="alert-dialog-description"
+                >
+                    <DialogTitle id="alert-dialog-title">{"Added Plant"}</DialogTitle>
+                    <DialogContent>
+                        <DialogContentText id="alert-dialog-description">
+                            {`Successfuly added the plant - ${values.plantName}!`}
+                        </DialogContentText>
+                    </DialogContent>
+                    <DialogActions>
+                        <Button onClick={handleClose} color="primary">
+                            Add another
+                        </Button>
+                        <NavLink to='/login'>
+                            <Button onClick={handleClose} color="primary" autoFocus>
+                                Done
+                        </Button>
+                        </NavLink>
+                    </DialogActions>
+                </Dialog>
             </form>
 
         </Container>

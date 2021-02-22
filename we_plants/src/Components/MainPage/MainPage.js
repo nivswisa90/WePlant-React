@@ -1,5 +1,4 @@
 import React from "react";
-import { makeStyles } from '@material-ui/core/styles';
 import UserInfo from "./userInfo";
 import Container from "@material-ui/core/Container";
 import "./mainPage.css";
