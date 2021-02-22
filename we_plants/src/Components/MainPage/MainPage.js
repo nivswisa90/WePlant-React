@@ -21,6 +21,7 @@ const MainPage = ({ userInfo, setUserInfo, handleLogOut }) => {
       <SearchPlant userInfo={userInfo} setUserInfo={setUserInfo} />
       <MyPlants userInfo={userInfo} setUserInfo={setUserInfo} />
       <Notify userInfo={userInfo} />
+
     </Container>
   );
 };

@@ -8,30 +8,27 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Typography from '@material-ui/core/Typography';
 import axios from 'axios';
 
-const Notification = ({ favorite, mail, firstName }) => {
-    //favoriteDate is the day of water plant after calculation to send notification
-    const favoriteDate = new Date(favorite.date);
-    const water = favorite.wayOfCare[0].water;
-    const days = parseInt(water.substr(0, water.indexOf('days')));
-    favoriteDate.setDate(favoriteDate.getDate() + days);
+const Notification = ({ favorite, mail, firstName, handleCheckClick }) => {
+    const water = favorite[0].wayOfCare[0].water;
     const today = new Date();
 
     const email = {
         firstName: firstName,
         type: 'notification',
         plantName: favorite.plantName,
-        email: 'nivswisa9@gmail.com',
+        email: mail,
         water: water
     }
 
-    // if ((favoriteDate.getDate() === today.getDate()) && (favoriteDate.getMonth() + 1 === today.getMonth() + 1) && (favoriteDate.getFullYear() === today.getFullYear())) {
-    //     axios
-    //         .post(`http://localhost:3000/api/mail`, email, {
-    //             withCredentials: true,
-    //         })
-    //         .then((res) => { console.log('mail sent') })
-    //         .catch(err => console.log(err));
-    // }
+    if ((favorite[1].getDate() === today.getDate()) && (favorite[1].getMonth() + 1 === today.getMonth() + 1) && (favorite[1].getFullYear() === today.getFullYear())) {
+        axios
+            .post(`http://localhost:3000/api/mail`, email, {
+                withCredentials: true,
+            })
+            .then((res) => { console.log('mail sent') })
+            .catch(err => console.log(err));
+    }
+
 
     return (
         <Accordion>
@@ -45,13 +42,13 @@ const Notification = ({ favorite, mail, firstName }) => {
                     aria-label="Acknowledge"
                     onClick={(event) => event.stopPropagation()}
                     onFocus={(event) => event.stopPropagation()}
-                    control={<Checkbox />}
-                    label={`Tasks for ${favorite.plantName}`}
+                    control={<Checkbox value={favorite[0].plantName} onChange={handleCheckClick} name={favorite[0].plantName}/>}
+                    label={`Tasks for ${favorite[0].plantName}`}
                 />
             </AccordionSummary>
             <AccordionDetails>
                 <Typography color="textSecondary">
-                    {`${favoriteDate.getDate()}-${favoriteDate.getMonth() + 1}-${favoriteDate.getFullYear()} - Need to watering the plant ${favorite.plantName}`}
+                    {`${favorite[1].getDate()}-${favorite[1].getMonth() + 1}-${favorite[1].getFullYear()} - Need to watering the plant ${favorite[0].plantName}`}
                 </Typography>
             </AccordionDetails>
         </Accordion>
