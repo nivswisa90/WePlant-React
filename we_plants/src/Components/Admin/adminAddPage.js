@@ -6,7 +6,7 @@ import Typography from '@material-ui/core/Typography';
 import SaveIcon from '@material-ui/icons/Save';
 import Button from '@material-ui/core/Button';
 import axios from "axios";
-import { Link ,NavLink} from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -37,7 +37,7 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-const AdminAddPLant = () => {
+const AdminAddPlant = () => {
     const classes = useStyles();
     const [values, setValues] = useState({
         plantName: "",
@@ -45,7 +45,10 @@ const AdminAddPLant = () => {
         imageUrl: "",
         family: "",
         description: "",
-        wayOfCare: []
+        light: '',
+        water: '',
+        feed: '',
+        temperature: ''
     });
 
     const handleChange = (e) => {
@@ -63,7 +66,7 @@ const AdminAddPLant = () => {
                 withCredentials: true,
             })
             .then((res) => {
-                if (res.data === "Succesfully added plant!") {
+                if (res.data === "Successfully added plant!") {
                     alert('Plant added to data base');
                 }
                 else {
@@ -73,8 +76,8 @@ const AdminAddPLant = () => {
             .catch((err) => {
                 console.log(err);
             });
-        return(
-            <Link to='MainPage'/>
+        return (
+            <Link to='MainPage' />
         )
     };
 
@@ -206,15 +209,15 @@ const AdminAddPLant = () => {
                     />
                 </div>
                 {/* <NavLink to="/Login"> */}
-                    <Button
-                        type="submit"
-                        variant="contained"
-                        color="primary"
-                        size="large"
-                        className={classes.button}
-                        startIcon={<SaveIcon />}
-                    >
-                        Save
+                <Button
+                    type="submit"
+                    variant="contained"
+                    color="primary"
+                    size="large"
+                    className={classes.button}
+                    startIcon={<SaveIcon />}
+                >
+                    Save
                 </Button>
                 {/* </NavLink> */}
             </form>
@@ -222,4 +225,4 @@ const AdminAddPLant = () => {
         </Container>
     );
 }
-export default AdminAddPLant;
+export default AdminAddPlant;

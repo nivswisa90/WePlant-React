@@ -33,7 +33,7 @@ const App = () => {
               firstName: docs.data.firstName,
               lastName: docs.data.lastName,
               myFavorites: docs.data.myFavorites,
-              email: docs.data.email
+              email: docs.data.email,
             }
           )
         })

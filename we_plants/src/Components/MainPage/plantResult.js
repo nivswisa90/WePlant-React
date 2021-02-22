@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import ListSubheader from '@material-ui/core/ListSubheader';
 import PlantCard from "../Plant/plantCard";
 import axios from 'axios';
-import MailOutlineIcon from '@material-ui/icons/MailOutline';
+// import MailOutlineIcon from '@material-ui/icons/MailOutline';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import Dialog from '@material-ui/core/Dialog';
