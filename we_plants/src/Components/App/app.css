@@ -34,3 +34,10 @@ div {
   font-size: 42px;
   margin-top: 12%;
 }
+.backGroundImage {
+  background-image: url('../../Images/BackGroundImage.png');
+  background-repeat: no-repeat;
+  height: 260vh;
+  width: 100%;
+  background-size: auto;
+}

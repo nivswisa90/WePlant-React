@@ -1,6 +1,7 @@
 import React from "react";
 import { makeStyles } from '@material-ui/core/styles';
 import Notification from './notification';
+import './mainPage.css';
 
 const useStyles = makeStyles({
     root: {
@@ -15,11 +16,14 @@ const Notify = ({ userInfo }) => {
         <div className="no-gutters">
             <h2 id="recent">Notification center</h2>
             <div className={classes.root}>
-                {userInfo.myFavorites.map(favorite => (
-                    <div key={favorite.id}>
-                        <Notification favorite={favorite} mail={userInfo.email} firstName={userInfo.firstName}/>
-                    </div>
-                ))}
+                {Object.keys(userInfo.myFavorites).length ?
+                    userInfo.myFavorites.map(favorite => (
+                        <div key={favorite.id}>
+                            <Notification favorite={favorite} mail={userInfo.email} firstName={userInfo.firstName} />
+                        </div>
+                    )) : <h2 id='smallTitle'>There is no available notifications right now</h2>
+                }
+
             </div>
         </div>
     );

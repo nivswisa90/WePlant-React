@@ -9,17 +9,18 @@ const useStylesResult = makeStyles(() => ({
     flexWrap: 'wrap',
     justifyContent: 'space-around',
     overflow: 'hidden',
-    backgroundColor: '#626262',
+    // backgroundColor: '#626262',
   },
   tableData: {
     marginTop: 40,
-  },
+  }
 }));
 
 const MyPlants = ({userInfo, setUserInfo}) => {
   const classes = useStylesResult();
   const cardType = 'myPlant';
   const result = userInfo;
+  console.log(result.myFavorites);
 
   const deletePlant = (plantId) => {
     axios.delete(`http://localhost:3000/api/users/${result.id}?plantId=${plantId}`, {
@@ -44,7 +45,7 @@ const MyPlants = ({userInfo, setUserInfo}) => {
         <div className="form-inline my-2 my-lg-0">
           <section className={classes.tableData}>
             <div className={classes.root}>
-              <PlantCard result={result.myFavorites} cardType={cardType} deletePlant={deletePlant}/>
+              {(Object.keys(userInfo.myFavorites).length) ? <PlantCard result={result.myFavorites} cardType={cardType} deletePlant={deletePlant}/>: <h2 id='smallTitle'>There is no available plants right now</h2>}
             </div>
           </section >
         </div>

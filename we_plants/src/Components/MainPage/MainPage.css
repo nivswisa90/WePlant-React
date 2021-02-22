@@ -77,6 +77,13 @@ div {
 /* end of Weather widget */
 
 /* search Plants */
+#smallTitle {
+  letter-spacing: -0.1px;
+  font-weight: 300;
+  font-size: 20px;
+  line-height: 20px;
+  margin-bottom: 3%;
+}
 #recent {
   letter-spacing: -0.1px;
   font-weight: 300;

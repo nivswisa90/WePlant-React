@@ -42,7 +42,7 @@ const useStyles = makeStyles((theme) => ({
 const PlantCard = ({ result, cardType, deletePlant, addToMyPlants }) => {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = useState(null);
-  const [open, setOpen] = useState(false);
+  const [openId, setOpenId] = useState(false);
   const [plantId, setPlantId] = useState(null);
 
   const handleClickDescription = (event) => {
@@ -55,7 +55,7 @@ const PlantCard = ({ result, cardType, deletePlant, addToMyPlants }) => {
 
   const handleClick = (id) => {
     setPlantId(id);
-    setOpen(true);
+    setOpenId(id);
   }
 
   const handleClose = (condition = 'false') => {
@@ -69,12 +69,12 @@ const PlantCard = ({ result, cardType, deletePlant, addToMyPlants }) => {
           addToMyPlants(plantId);
       }
     }
-    setOpen(false);
+    setOpenId(false);
     setPlantId(null);
   };
 
   const openPopDescription = Boolean(anchorEl);
-  const id = open ? 'simple-popover' : undefined;
+  const id = openId ? 'simple-popover' : undefined;
 
   return (
     <GridList className={classes.gridList} cols={1}>
@@ -93,7 +93,7 @@ const PlantCard = ({ result, cardType, deletePlant, addToMyPlants }) => {
                   {cardType !== 'myPlant' ? <AddIcon className={classes.title} /> : <RemoveIcon className={classes.title} />}
                 </IconButton>
                 <Dialog
-                  open={open}
+                  open={openId === res.id}
                   onClose={handleClose}
                   aria-labelledby="alert-dialog-title"
                   aria-describedby="alert-dialog-description"
@@ -120,6 +120,7 @@ const PlantCard = ({ result, cardType, deletePlant, addToMyPlants }) => {
                 <Popover
                   className={classes.popOver}
                   id={id}
+                  key={res.id}
                   open={openPopDescription}
                   anchorEl={anchorEl}
                   onClose={handleCloseDescription}

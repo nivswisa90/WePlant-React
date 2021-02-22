@@ -6,21 +6,21 @@ import "./app.css";
 import ReactRouter from '../../Router/router';
 import { UserContext } from '../userContext';
 import ScopedCssBaseline from '@material-ui/core/CssBaseline';
-
 import Cookies from 'js-cookie';
 import axios from "axios";
-const useStyles = makeStyles({
-  backGroundImage: {
-    backgroundImage: `url(${backgroundImage})`,
-    backgroundRepeat: 'no-repeat',
-    height: '240vh',
-    width: '100%',
-    backgroundSize: 'cover'
-  }
-});
+
+// const useStyles = makeStyles({
+//   backGroundImage: {
+//     backgroundImage: `url(${backgroundImage})`,
+//     backgroundRepeat: 'no-repeat',
+//     height: '240vh',
+//     width: '100%',
+//     backgroundSize: 'cover'
+//   }
+// });
 
 const App = () => {
-  const classes = useStyles();
+  // const classes = useStyles();
 
   const [userInfo, setUserInfo] = useState(null);
   const valueProvider = useMemo(() => ({ userInfo, setUserInfo }), [userInfo, setUserInfo]);
@@ -47,7 +47,7 @@ const App = () => {
 
   return (
     <ScopedCssBaseline>
-      <div className={classes.backGroundImage} >
+      <div className= 'backGroundImage' >
         <UserContext.Provider value={valueProvider}>
           <ReactRouter />
         </UserContext.Provider>
