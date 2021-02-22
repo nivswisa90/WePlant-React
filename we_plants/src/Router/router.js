@@ -1,6 +1,5 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
-
 import Login from "../Components/Login/login";
 import Form from "../Components/Register/form";
 import adminAddPlant from "../Components/Admin/adminAddPage";

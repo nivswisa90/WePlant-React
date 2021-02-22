@@ -7,7 +7,6 @@ import SearchPlant from "../MainPage/searchPlant";
 // import MyPlants from "./myPlants";
 import { NavLink } from "react-router-dom";
 import { Button } from "@material-ui/core";
-import { makeStyles } from '@material-ui/core/styles';
 
 const AdminMainPage = ({ userInfo, setUserInfo, handleLogOut }) => {
   return (

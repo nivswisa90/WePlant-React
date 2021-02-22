@@ -10,7 +10,6 @@ const useStyles = makeStyles({
 });
 
 const Notify = ({ userInfo }) => {
-    // userInfo.myFavorites.sort((a,b) => console.log(a.date, b.date));
     const classes = useStyles();
     return (
         <div className="no-gutters">
@@ -18,7 +17,7 @@ const Notify = ({ userInfo }) => {
             <div className={classes.root}>
                 {userInfo.myFavorites.map(favorite => (
                     <div key={favorite.id}>
-                        <Notification favorite={favorite}/>
+                        <Notification favorite={favorite} />
                     </div>
                 ))}
             </div>

@@ -8,7 +8,7 @@ const Footer = (() => {
   return (
     <div className="site-footer">
       <div className="footer_about">
-        <Link to="#" className="title">We Plants</Link>
+        <Link to="/mainpage" className="title">We Plants</Link>
         <Link to="#" className="aboutUs">About Us</Link>
       </div>
       <div className="footer_icons">
@@ -17,7 +17,6 @@ const Footer = (() => {
       </p>
         <ul className="social-icons">
           <li>
-            
             <Link className="facebook" to="#"><FacebookIcon/><i className="fa fa-facebook"></i></Link>
           </li>
           <li>
@@ -29,7 +28,6 @@ const Footer = (() => {
         </ul>
       </div>
     </div>
-
   )
 
 });

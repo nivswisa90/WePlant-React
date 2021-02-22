@@ -37,7 +37,6 @@ const MyPlants = ({userInfo, setUserInfo}) => {
     })
     .catch(err => {console.log(err)});
   }
-  
   return (
     <div className="no-gutters">
       <div className="col-12">

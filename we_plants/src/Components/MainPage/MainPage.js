@@ -9,8 +9,6 @@ import MyPlants from "./myPlants";
 import Notify from "./notify";
 import Button from '@material-ui/core/Button';
 
-
-
 const MainPage = ({ userInfo, setUserInfo, handleLogOut }) => {
   return (
     <Container maxWidth="sm">
