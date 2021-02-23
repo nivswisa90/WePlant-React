@@ -11,8 +11,6 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 
-
-
 const useStylesResult = makeStyles(() => ({
   root: {
     display: 'flex',
@@ -58,7 +56,7 @@ const PlantResult = ({ result, userInfo, setUserInfo }) => {
   };
 
   const handleClose = () => {
-    axios.post(`https://weplants.herokuapp.com/api/mail`, mail, {
+    axios.post(`http://localhost:3000/api/mail`, mail, {
       withCredentials: true,
     })
       .then(docs => {
@@ -69,7 +67,6 @@ const PlantResult = ({ result, userInfo, setUserInfo }) => {
   }
 
   const addToMyPlants = (plantId) => {
-    // `https://weplants.herokuapp.com/api/users/${userInfo.id}?plantId=${plantId}`
     axios.put(`https://weplants.herokuapp.com/api/users/${userInfo.id}?plantId=${plantId}`, '', {
       withCredentials: true,
     })
@@ -90,7 +87,7 @@ const PlantResult = ({ result, userInfo, setUserInfo }) => {
     <section className={classes.tableData}>
       <div className={classes.root}>
         <ListSubheader style={{ height: 'auto' }} component="div">{`Found ${resultLength} plants`}</ListSubheader>
-        {resultLength !== 0 ? <PlantCard result={result} cardType={cardType} addToMyPlants={addToMyPlants}  /> :
+        {resultLength !== 0 ? <PlantCard result={result} cardType={cardType} addToMyPlants={addToMyPlants} /> :
           <div className={classes.contactUs} >
             <p className={classes.pContactUs}>Contact us to add desire plant</p>
             <Button variant="outlined" color="primary" onClick={handleClickOpen}>

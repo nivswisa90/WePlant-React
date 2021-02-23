@@ -29,7 +29,6 @@ const Notification = ({ favorite, mail, firstName, handleCheckClick }) => {
             .catch(err => console.log(err));
     }
 
-
     return (
         <Accordion>
             <AccordionSummary
@@ -42,7 +41,7 @@ const Notification = ({ favorite, mail, firstName, handleCheckClick }) => {
                     aria-label="Acknowledge"
                     onClick={(event) => event.stopPropagation()}
                     onFocus={(event) => event.stopPropagation()}
-                    control={<Checkbox value={favorite[0].plantName} onChange={handleCheckClick} name={favorite[0].plantName}/>}
+                    control={<Checkbox value={favorite[0].plantName} onChange={handleCheckClick} name={favorite[0].plantName} />}
                     label={`Tasks for ${favorite[0].plantName}`}
                 />
             </AccordionSummary>

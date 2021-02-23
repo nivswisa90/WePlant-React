@@ -18,7 +18,7 @@ const LoginForm = ({ setUserInfo, submitForm }) => {
     <Container maxWidth="sm">
       <div className="form-login-content">
         <h4 id="form-title"> Log in to WePlant</h4>
-        <form onSubmit={handleSubmit}  noValidate>
+        <form onSubmit={handleSubmit} noValidate>
           <div className="form-inputs">
             <TextField id="outlined-basic"
               label="Email"
@@ -48,11 +48,11 @@ const LoginForm = ({ setUserInfo, submitForm }) => {
           </div>
           <NavLink to="/Register">
             <div className="register-login-button">
-          <Button variant="outlined" color="secondary">
-            Create new account
+              <Button variant="outlined" color="secondary">
+                Create new account
           </Button>
-          </div>
-        </NavLink>
+            </div>
+          </NavLink>
         </form>
       </div>
     </Container>

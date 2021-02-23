@@ -19,11 +19,11 @@ const WeatherAPI = () => {
   useEffect(() => fetchWeather(), []);
 
   return (
-      <div id="weather">
-        <div id="description">{weatherFeatures.description}</div>
-        <h1 id="temp">{weatherFeatures.celcius}</h1>
-        <div id="location">{weatherFeatures.location}</div>
-      </div>
+    <div id="weather">
+      <div id="description">{weatherFeatures.description}</div>
+      <h1 id="temp">{weatherFeatures.celcius}</h1>
+      <div id="location">{weatherFeatures.location}</div>
+    </div>
   );
 };
 export default WeatherAPI;

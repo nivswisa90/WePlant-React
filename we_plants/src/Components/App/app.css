@@ -35,7 +35,7 @@ div {
   margin-top: 12%;
 }
 .backGroundImage {
-  background-image: url('../../Images/BackGroundImage.png');
+  background-image: url("../../Images/BackGroundImage.png");
   background-repeat: no-repeat;
   height: 280vh;
   width: 100%;

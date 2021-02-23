@@ -17,13 +17,13 @@ const Footer = (() => {
       </p>
         <ul className="social-icons">
           <li>
-            <Link className="facebook" to="#"><FacebookIcon/><i className="fa fa-facebook"></i></Link>
+            <Link className="facebook" to="#"><FacebookIcon /><i className="fa fa-facebook"></i></Link>
           </li>
           <li>
-            <Link className="twitter" to="#"><TwitterIcon/><i className="fa fa-twitter"></i></Link>
+            <Link className="twitter" to="#"><TwitterIcon /><i className="fa fa-twitter"></i></Link>
           </li>
           <li>
-            <Link className="linkedin" to="#"><LinkedInIcon/><i className="fa fa-linkedin"></i></Link>
+            <Link className="linkedin" to="#"><LinkedInIcon /><i className="fa fa-linkedin"></i></Link>
           </li>
         </ul>
       </div>

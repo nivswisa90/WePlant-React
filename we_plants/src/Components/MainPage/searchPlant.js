@@ -4,7 +4,6 @@ import PlantResult from './plantResult';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 
-
 const SearchPlant = ({ userInfo, setUserInfo }) => {
   const [result, setResult] = useState("");
   const [plantName, setPlantName] = useState({
@@ -50,7 +49,7 @@ const SearchPlant = ({ userInfo, setUserInfo }) => {
             </Button>
           </div>
         </div>
-        {!result ? <p></p> : <PlantResult result={result} userInfo={userInfo} setUserInfo={setUserInfo}/>}
+        {!result ? <p></p> : <PlantResult result={result} userInfo={userInfo} setUserInfo={setUserInfo} />}
       </div>
     </div>
   );

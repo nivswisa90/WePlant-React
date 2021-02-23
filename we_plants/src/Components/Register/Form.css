@@ -11,91 +11,79 @@ section,
 div {
   display: block;
 }
-@media (min-width: 600px){
-/* Container login*/
-.MuiContainer-maxWidthSm {
-  height: 100vh;
-}
-.form-login-content {
-  border-radius: 10px;
-  position: relative;
-  background: rgba(250, 235, 215, 0.39) ;
-  height: 55vh;
-  border: 1px solid;
-  top: 15vh;
-}
+@media (min-width: 600px) {
+  /* Container login*/
+  .MuiContainer-maxWidthSm {
+    height: 100vh;
+  }
+  .form-login-content {
+    border-radius: 10px;
+    position: relative;
+    background: rgba(250, 235, 215, 0.39);
+    height: 55vh;
+    border: 1px solid;
+    top: 15vh;
+  }
 
-.form-inputs {
-  margin-bottom: 1rem;
-  margin-left: 22vh;
-  font-family: "Montserrat", sans-serif;
-  font-weight: 200;
-}
+  .form-inputs {
+    margin-bottom: 1rem;
+    margin-left: 22vh;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 200;
+  }
 
-.form-inputs p {
-  font-size: 0.8rem;
-  margin-top: 0.5rem;
-  color: #f00e0e;
-}
+  .form-inputs p {
+    font-size: 0.8rem;
+    margin-top: 0.5rem;
+    color: #f00e0e;
+  }
 
-.login-button{
-  margin-left:29vh;
-  margin-bottom: 2vh;
-}
-.register-login-button{
-  margin-left: 22vh;
-}
+  .login-button {
+    margin-left: 29vh;
+    margin-bottom: 2vh;
+  }
+  .register-login-button {
+    margin-left: 22vh;
+  }
 
-#form-title {
-  text-align: center;
-  font-family: "Montserrat", sans-serif;
-  font-weight: 200;
-  color: #626262;
-  margin-top: 10%;
-  margin-bottom: 5%;
-  font-size: 42px;
-}
-/* End of  login Container */
+  #form-title {
+    text-align: center;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 200;
+    color: #626262;
+    margin-top: 10%;
+    margin-bottom: 5%;
+    font-size: 42px;
+  }
+  /* End of  login Container */
 
-/* Register container */
-.form-register-content{
-  border-radius: 10px;
-  position: relative;
-  background: rgba(250, 235, 215, 0.39) ;
-  height: 78vh;
-  border: 1px solid;
-  top: 15vh;
-  left: 49vh;
-}
+  /* Register container */
+  .form-register-content {
+    border-radius: 10px;
+    position: relative;
+    background: rgba(250, 235, 215, 0.39);
+    height: 78vh;
+    border: 1px solid;
+    top: 15vh;
+    left: 49vh;
+  }
 
-.register-button{
-  margin-left:27vh;
-  margin-bottom: 2vh;
-}
+  .register-button {
+    margin-left: 27vh;
+    margin-bottom: 2vh;
+  }
 
-#down-title{
-  text-align: center;
-  font-family: "Montserrat", sans-serif;
-  font-weight: 200;
-  color: #626262;
-  margin-top: 10%;
-  margin-bottom: 5%;
-  font-size: 20px;
+  #down-title {
+    text-align: center;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 200;
+    color: #626262;
+    margin-top: 10%;
+    margin-bottom: 5%;
+    font-size: 20px;
+  }
+  /* end of Register container*/
 }
-/* end of Register container*/
-}
-
-/* .form-container {
-  width: 70%;
-  position: absolute;
-  top: 5%;
-  left: 30%;
-  border-radius: 10px;
-  height: 75%;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-} */
-
 
 #user_header {
   font-weight: 200;
@@ -118,20 +106,6 @@ div {
   color: #fff;
 }
 
-
-/* .form {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 90%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-} */
-
 .form h1 {
   font-size: 1rem;
   text-align: start;
@@ -139,8 +113,6 @@ div {
   margin-bottom: 1rem;
   color: #fff;
 }
-
-
 
 .form-label {
   display: inline-block;

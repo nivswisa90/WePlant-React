@@ -1,7 +1,6 @@
 import React from "react";
 
-
-const UserInfo = ({userInfo}) => {
+const UserInfo = ({ userInfo }) => {
   return (
     <div className="no-gutters">
       <div className="col-sm-6 col-md-8">

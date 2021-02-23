@@ -14,7 +14,7 @@ const useStyles = makeStyles({
 
 const Notify = ({ userInfo }) => {
     const classes = useStyles();
-    
+
     const checkNextNotification = () => {
         const arrayOfFavorites = [];
         userInfo.myFavorites.map(favorite => {
@@ -25,7 +25,7 @@ const Notify = ({ userInfo }) => {
             const today = new Date();
 
             const diffTime = favoriteDate.getTime() - today.getTime();
-            const diffDays = diffTime/(1000 * 3600 * 24);
+            const diffDays = diffTime / (1000 * 3600 * 24);
             if (diffDays < 15 && diffDays > -1) {
                 arrayOfFavorites.push([favorite, favoriteDate]);
             }
@@ -34,22 +34,19 @@ const Notify = ({ userInfo }) => {
     }
 
     const newFavorites = checkNextNotification();
-    newFavorites.sort((a,b) => a[1].getDate() - b[1].getDate());
+    newFavorites.sort((a, b) => a[1].getDate() - b[1].getDate());
 
-    // Need to fix this
     const [toCheck, setToCheck] = useState({});
-    
+
     const handleClick = () => {
-        console.log(newFavorites.pop());
+        newFavorites.pop();
     }
 
     const handleCheckClick = (e) => {
-        // const { name, checked } = e.target;
         setToCheck({
             ...toCheck,
             [e.target.name]: e.target.value,
         });
-        console.log(toCheck);
     }
 
     return (
@@ -66,7 +63,6 @@ const Notify = ({ userInfo }) => {
                 <IconButton onClick={handleClick}>
                     <CheckCircleOutlineIcon />
                 </IconButton>
-
             </div>
         </div>
     );

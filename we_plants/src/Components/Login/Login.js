@@ -27,7 +27,8 @@ const Login = (props) => {
       .then(docs => {
         if (docs.data === 'Successfully logout') {
           setUserInfo(null);
-        }})
+        }
+      })
       .catch(err => console.log(err));
   }
 
@@ -37,9 +38,9 @@ const Login = (props) => {
         <div className='loginForm' style={useStyle.loginForm}>
           <LoginForm setUserInfo={setUserInfo} submitForm={submitForm} />
         </div>
-      ) : (userInfo.role === 'user' ? <MainPage userInfo={userInfo} setUserInfo={setUserInfo} handleLogOut={handleLogOut}/> :
-       <AdminMainPage userInfo={userInfo} setUserInfo={setUserInfo} handleLogOut={handleLogOut}/>
-         )}
+      ) : (userInfo.role === 'user' ? <MainPage userInfo={userInfo} setUserInfo={setUserInfo} handleLogOut={handleLogOut} /> :
+        <AdminMainPage userInfo={userInfo} setUserInfo={setUserInfo} handleLogOut={handleLogOut} />
+        )}
     </div>
   );
 };

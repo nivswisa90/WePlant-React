@@ -4,7 +4,6 @@ import Container from "@material-ui/core/Container";
 import "../MainPage/mainPage.css";
 import WeatherAPI from "../MainPage/weatherAPI";
 import SearchPlant from "../MainPage/searchPlant";
-// import MyPlants from "./myPlants";
 import { NavLink } from "react-router-dom";
 import { Button } from "@material-ui/core";
 
@@ -26,7 +25,6 @@ const AdminMainPage = ({ userInfo, setUserInfo, handleLogOut }) => {
         </div>
       </NavLink>
       <SearchPlant userInfo={userInfo} setUserInfo={setUserInfo} />
-      {/* <MyPlants userInfo={userInfo} setUserInfo={setUserInfo}/> */}
     </Container>
   );
 };

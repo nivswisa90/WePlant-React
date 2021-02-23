@@ -33,7 +33,7 @@ const App = () => {
 
   return (
     <ScopedCssBaseline>
-      <div className= 'backGroundImage' >
+      <div className='backGroundImage' >
         <UserContext.Provider value={valueProvider}>
           <ReactRouter />
         </UserContext.Provider>
