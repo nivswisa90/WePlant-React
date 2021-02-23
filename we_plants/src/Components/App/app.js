@@ -1,6 +1,4 @@
 import React, { useEffect, useMemo, useState } from "react";
-import { makeStyles } from '@material-ui/core/styles';
-import backgroundImage from '../../Images/BackGroundImage.png';
 import Footer from "../MainPage/footer";
 import "./app.css";
 import ReactRouter from '../../Router/router';
@@ -9,26 +7,14 @@ import ScopedCssBaseline from '@material-ui/core/CssBaseline';
 import Cookies from 'js-cookie';
 import axios from "axios";
 
-// const useStyles = makeStyles({
-//   backGroundImage: {
-//     backgroundImage: `url(${backgroundImage})`,
-//     backgroundRepeat: 'no-repeat',
-//     height: '240vh',
-//     width: '100%',
-//     backgroundSize: 'cover'
-//   }
-// });
-
 const App = () => {
-  // const classes = useStyles();
-
   const [userInfo, setUserInfo] = useState(null);
   const valueProvider = useMemo(() => ({ userInfo, setUserInfo }), [userInfo, setUserInfo]);
 
   useEffect(() => {
     const token = Cookies.get('token');
     if (token) {
-      axios.get(`http://localhost:3000/api/users`, { withCredentials: true })
+      axios.get(`https://weplants.herokuapp.com/api/users`, { withCredentials: true })
         .then(docs => {
           setUserInfo(
             {

@@ -20,10 +20,9 @@ const MyPlants = ({userInfo, setUserInfo}) => {
   const classes = useStylesResult();
   const cardType = 'myPlant';
   const result = userInfo;
-  console.log(result.myFavorites);
 
   const deletePlant = (plantId) => {
-    axios.delete(`http://localhost:3000/api/users/${result.id}?plantId=${plantId}`, {
+    axios.delete(`https://weplants.herokuapp.com/api/users/${result.id}?plantId=${plantId}`, {
       withCredentials: true,
     })
     .then(docs => {

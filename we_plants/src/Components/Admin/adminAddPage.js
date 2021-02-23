@@ -82,7 +82,7 @@ const AdminAddPlant = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         axios
-            .post(`http://localhost:3000/api/plants`, values, {
+            .post(`https://weplants.herokuapp.com/api/plants`, values, {
                 withCredentials: true,
             })
             .then((res) => {

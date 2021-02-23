@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const WeatherAPI = () => {
   const [weatherFeatures, setWeatherFeatures] = useState({
@@ -15,6 +15,8 @@ const WeatherAPI = () => {
     const location = weather.name;
     setWeatherFeatures({ description, celcius, location });
   };
+
+  useEffect(() => fetchWeather(), []);
 
   return (
       <div id="weather">

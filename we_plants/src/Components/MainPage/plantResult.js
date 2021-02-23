@@ -58,7 +58,7 @@ const PlantResult = ({ result, userInfo, setUserInfo }) => {
   };
 
   const handleClose = () => {
-    axios.post(`http://localhost:3000/api/mail`, mail, {
+    axios.post(`https://weplants.herokuapp.com/api/mail`, mail, {
       withCredentials: true,
     })
       .then(docs => {
@@ -69,7 +69,8 @@ const PlantResult = ({ result, userInfo, setUserInfo }) => {
   }
 
   const addToMyPlants = (plantId) => {
-    axios.put(`http://localhost:3000/api/users/${userInfo.id}?plantId=${plantId}`, '', {
+    // `https://weplants.herokuapp.com/api/users/${userInfo.id}?plantId=${plantId}`
+    axios.put(`https://weplants.herokuapp.com/api/users/${userInfo.id}?plantId=${plantId}`, '', {
       withCredentials: true,
     })
       .then(docs => {

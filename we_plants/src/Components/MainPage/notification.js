@@ -22,7 +22,7 @@ const Notification = ({ favorite, mail, firstName, handleCheckClick }) => {
 
     if ((favorite[1].getDate() === today.getDate()) && (favorite[1].getMonth() + 1 === today.getMonth() + 1) && (favorite[1].getFullYear() === today.getFullYear())) {
         axios
-            .post(`http://localhost:3000/api/mail`, email, {
+            .post(`https://weplants.herokuapp.com/api/mail`, email, {
                 withCredentials: true,
             })
             .then((res) => { console.log('mail sent') })

@@ -21,7 +21,7 @@ const SearchPlant = ({ userInfo, setUserInfo }) => {
 
   const handleSubmit = () => {
     axios
-      .get(`http://localhost:3000/api/plants?name=${plantName.name}`, {
+      .get(`https://weplants.herokuapp.com/api/plants?name=${plantName.name}`, {
         withCredentials: true,
       })
       .then((docs) => {

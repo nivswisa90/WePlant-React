@@ -25,7 +25,7 @@ const useForm = (callback, validate, setUserInfo) => {
     e.preventDefault();
     setErrors(validate(values));
     axios
-      .post("http://localhost:3000/api/users", values, {withCredentials: true})
+      .post("https://weplants.herokuapp.com/api/users", values, {withCredentials: true})
       .then((res) => {
         setUserInfo({
           id: res.data.id,

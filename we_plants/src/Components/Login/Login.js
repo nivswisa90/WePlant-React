@@ -21,7 +21,7 @@ const Login = (props) => {
   };
 
   const handleLogOut = () => {
-    axios.get(`http://localhost:3000/api/users/logout`, {
+    axios.get(`https://weplants.herokuapp.com/api/users/logout`, {
       withCredentials: true
     })
       .then(docs => {
